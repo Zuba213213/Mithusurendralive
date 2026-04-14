@@ -134,29 +134,21 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 ═══════════════════════════════════════════════════════ */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
   position:relative;overflow:hidden}
-
-/* Left — photo */
 .hero-photo{position:relative;overflow:hidden}
 .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;
   transform:scale(1.08);transition:transform 8s ease-out;will-change:transform}
 .hero-photo img.loaded{transform:scale(1)}
 .hero-photo::after{content:'';position:absolute;inset:0;
   background:linear-gradient(to right,rgba(12,15,10,.15) 0%,rgba(12,15,10,.55) 100%)}
-
-/* Gold vertical divider */
 .hero-divider{position:absolute;left:50%;top:0;bottom:0;width:1px;
   background:linear-gradient(to bottom,transparent 0%,var(--gold) 20%,var(--gold) 80%,transparent 100%);
   opacity:.35;z-index:3}
-
-/* Right — copy */
 .hero-copy{position:relative;z-index:4;
   display:flex;flex-direction:column;justify-content:flex-end;
   padding:calc(5rem + 80px) var(--gut) 6rem 4rem}
-
 .hero-kicker{font-family:var(--ff-h);font-size:1.1rem;font-weight:500;
   color:var(--gold-w);display:block;margin-bottom:1.4rem;
   transform:rotate(-1deg);transform-origin:left center}
-
 .hero-title{font-family:var(--ff-d);font-size:clamp(3rem,5.5vw,6rem);
   font-weight:900;line-height:.92;letter-spacing:-.02em;margin-bottom:2.2rem}
 .hero-title .t1{display:block;color:var(--text)}
@@ -165,21 +157,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-title .t3{display:block;color:var(--text);font-size:.72em;font-weight:700;
   font-style:normal;padding-top:.2em}
-
-.hero-sub{font-size:1rem;line-height:1.9;color:var(--muted);
-  max-width:400px;margin-bottom:2.2rem}
-
+.hero-sub{font-size:1rem;line-height:1.9;color:var(--muted);max-width:400px;margin-bottom:2.2rem}
 .hero-ctas{display:flex;flex-direction:column;gap:.9rem;align-items:flex-start}
-
-/* Scroll indicator */
 .hero-scroll{position:absolute;bottom:2.5rem;right:2.5rem;z-index:4;
   writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.3em;
-  text-transform:uppercase;color:var(--dim);
-  display:flex;align-items:center;gap:.75rem}
+  text-transform:uppercase;color:var(--dim);display:flex;align-items:center;gap:.75rem}
 .hero-scroll::after{content:'';width:1px;height:55px;
   background:linear-gradient(to bottom,var(--gold),transparent);display:block}
-
-/* Hero atmosphere */
 .hero-glow{position:absolute;bottom:-80px;left:50%;
   transform:translateX(-55%);width:800px;height:600px;
   background:radial-gradient(ellipse at center bottom,
@@ -189,8 +173,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 @keyframes breathe{
   0%,100%{transform:translateX(-55%) scale(1);opacity:.85}
   50%{transform:translateX(-55%) scale(1.07);opacity:1}}
-
-/* Hero SVG circle */
 .hero-circle{position:absolute;top:50%;left:50%;
   transform:translate(-50%,-58%);width:480px;height:480px;
   opacity:.05;pointer-events:none;z-index:2}
@@ -210,11 +192,8 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .story-bg-num{font-family:var(--ff-d);font-size:18rem;font-weight:900;font-style:italic;
   color:rgba(201,146,10,.03);position:absolute;top:-2rem;left:0;
   line-height:1;pointer-events:none;user-select:none}
-
 .story-layout{display:grid;grid-template-columns:42% 1fr;gap:5rem;align-items:start;
   max-width:1200px;margin:0 auto;padding-top:1rem}
-
-/* Photo stack */
 .story-photos{position:sticky;top:6rem;display:flex;flex-direction:column;gap:1.2rem}
 .story-photo-main{aspect-ratio:4/5;overflow:hidden;position:relative}
 .story-photo-main img{width:100%;height:100%;object-fit:cover;object-position:center top;
@@ -222,58 +201,44 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .story-photo-main:hover img{transform:scale(1.03)}
 .story-photo-main::after{content:'';position:absolute;inset:0;
   background:linear-gradient(to bottom,transparent 60%,rgba(12,15,10,.6) 100%)}
-
 .story-photo-sub{aspect-ratio:16/9;overflow:hidden;position:relative}
 .story-photo-sub img{width:100%;height:100%;object-fit:cover;object-position:center 40%;
   transition:transform .6s var(--ease)}
 .story-photo-sub:hover img{transform:scale(1.03)}
-
-/* Story text */
-.story-text{}
 .story-heading{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.1;margin-bottom:1.8rem}
 .story-heading em{font-style:italic;font-weight:300;color:var(--gold-w)}
-
 .story-body p{font-size:1rem;line-height:1.95;color:var(--muted);margin-bottom:1.3rem}
 .story-body p:last-child{margin-bottom:0}
 .story-body strong{color:var(--text);font-weight:500}
 
 /* ═══════════════════════════════════════════════════════
-   METHOD — THE LION WORK
+   METHOD
 ═══════════════════════════════════════════════════════ */
 .method{padding:6rem var(--gut) 7rem;background:var(--bg2);position:relative}
-
 .method-top{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
   max-width:1200px;margin:0 auto 5rem}
-
-/* Photo with badge */
 .method-photo-wrap{position:relative}
 .method-photo{aspect-ratio:4/5;overflow:hidden}
 .method-photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%}
 .method-badge{position:absolute;bottom:-1.5rem;right:-1.5rem;
-  background:var(--bg);border:1px solid var(--border-mid);
-  padding:1.5rem 1.8rem;max-width:260px}
+  background:var(--bg);border:1px solid var(--border-mid);padding:1.5rem 1.8rem;max-width:260px}
 .method-badge-name{font-family:var(--ff-d);font-size:1.4rem;font-style:italic;
   font-weight:700;color:var(--gold-w);line-height:1.1;display:block;margin-bottom:.4rem}
 .method-badge-sub{font-family:var(--ff-m);font-size:.52rem;letter-spacing:.25em;
   text-transform:uppercase;color:var(--dim)}
-
 .method-intro .eyebrow{margin-bottom:1.2rem}
 .method-heading{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.1;margin-bottom:1.5rem}
 .method-heading em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .method-intro p{font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:1.1rem}
-
-/* Phase rows */
-.method-phases{max-width:1200px;margin:0 auto;
-  border-top:1px solid var(--border-soft)}
+.method-phases{max-width:1200px;margin:0 auto;border-top:1px solid var(--border-soft)}
 .phase-row{display:grid;grid-template-columns:120px 1fr;gap:2rem;align-items:start;
   padding:2.8rem 0;border-bottom:1px solid var(--border-soft)}
 .phase-row:last-child{border-bottom:none}
 .phase-row:hover .phase-num-big{opacity:.25}
 .phase-num-big{font-family:var(--ff-d);font-size:4.5rem;font-weight:900;font-style:italic;
-  color:var(--gold);opacity:.1;line-height:1;text-align:center;
-  transition:opacity .4s var(--ease)}
+  color:var(--gold);opacity:.1;line-height:1;text-align:center;transition:opacity .4s var(--ease)}
 .phase-content h3{font-family:var(--ff-d);font-size:1.35rem;font-weight:700;
   color:var(--text);margin-bottom:.65rem}
 .phase-content p{font-size:.95rem;line-height:1.9;color:var(--muted)}
@@ -286,10 +251,8 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .transform-header h2{font-family:var(--ff-d);font-size:clamp(2rem,4vw,3.2rem);
   font-weight:900;line-height:1.05;margin-top:.8rem}
 .transform-header h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
-
 .transform-grid{display:grid;grid-template-columns:1fr 64px 1fr;
   gap:0;max-width:1000px;margin:0 auto;align-items:stretch}
-
 .transform-col{padding:2.5rem 2rem}
 .transform-col.before{background:rgba(212,86,10,.04);border:1px solid rgba(212,86,10,.12)}
 .transform-col.after{background:rgba(201,146,10,.04);border:1px solid var(--border)}
@@ -297,16 +260,13 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   text-transform:uppercase;display:block;margin-bottom:1.5rem}
 .transform-col.before .transform-col-head{color:var(--ember)}
 .transform-col.after .transform-col-head{color:var(--gold)}
-
 .transform-items{list-style:none;display:flex;flex-direction:column;gap:.85rem}
 .transform-items li{font-size:.9rem;line-height:1.6;color:var(--muted);
   display:flex;gap:.75rem;align-items:flex-start}
 .transform-items li::before{content:'—';flex-shrink:0;font-size:.75rem;margin-top:.15rem}
 .transform-col.before .transform-items li::before{color:rgba(212,86,10,.5)}
 .transform-col.after .transform-items li::before{color:var(--gold)}
-
-.transform-arrow{display:flex;align-items:center;justify-content:center;
-  background:var(--bg3)}
+.transform-arrow{display:flex;align-items:center;justify-content:center;background:var(--bg3)}
 .transform-arrow-inner{width:36px;height:36px;border-radius:50%;
   background:var(--gold);display:flex;align-items:center;justify-content:center;
   font-size:1rem;color:var(--bg)}
@@ -319,8 +279,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .testi-header h2{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.1;margin-top:.6rem}
 .testi-header h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
-
-/* Featured card */
 .testi-featured{max-width:1200px;margin:0 auto 3rem;
   background:var(--bg3);border:1px solid var(--border);
   padding:3rem 3.5rem;position:relative;overflow:hidden}
@@ -337,10 +295,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   border-left:2px solid var(--gold);padding-left:1.6rem;margin-bottom:1.5rem}
 .testi-featured .testi-body{font-size:.93rem;color:var(--muted);line-height:1.8}
 .testi-featured .testi-body+.testi-body{margin-top:.8rem}
-
-/* Grid cards */
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);
-  gap:1.2rem;max-width:1200px;margin:0 auto}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1200px;margin:0 auto}
 .testi-card{border:1px solid var(--border-soft);padding:2rem 1.8rem;
   position:relative;display:flex;flex-direction:column;gap:1rem;
   transition:border-color .3s,transform .3s}
@@ -368,10 +323,501 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   font-weight:700;line-height:1.1;margin-bottom:1.2rem}
 .diagnosis-inner h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .diagnosis-inner p{font-size:1rem;line-height:1.9;color:var(--muted);max-width:560px;margin:0 auto 2.5rem}
-.diagnosis-embed{background:rgba(240,232,208,.02);border:1px dashed rgba(201,146,10,.2);
-  min-height:400px;display:flex;align-items:center;justify-content:center;margin-bottom:2rem}
-.diagnosis-embed-note{font-family:var(--ff-m);font-size:.58rem;letter-spacing:.28em;
-  text-transform:uppercase;color:rgba(201,146,10,.3);text-align:center;line-height:2}
+/* Embed container — overrides placeholder styles once the form is inside */
+.diagnosis-embed{
+  background: rgba(240,232,208,.02);
+  border: 1px solid rgba(201,146,10,.12);
+  display: block;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+/* ── DIAGNOSTIC FORM CSS ── */
+
+.diag-wrap {
+  width: 100%;
+  max-width: 680px;
+  position: relative;
+}
+
+/* Progress bar */
+.diag-progress {
+  height: 2px;
+  background: rgba(201,146,10,0.15);
+  margin-bottom: 2.5rem;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.diag-progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, #c9920a, #e8a820);
+  border-radius: 2px;
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+  width: 0%;
+}
+
+/* Step counter */
+.diag-counter {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(201,146,10,0.5);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/* Card */
+.diag-card {
+  background: #1a1a12;
+  border: 1px solid rgba(201,146,10,0.12);
+  padding: 2.5rem 2.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.diag-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #c9920a, transparent);
+}
+
+/* Question text */
+.diag-q {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+  font-weight: 400;
+  color: #f0e8d0;
+  line-height: 1.4;
+  margin-bottom: 0.6rem;
+}
+
+.diag-q-sub {
+  font-size: 0.82rem;
+  color: rgba(240,232,208,0.45);
+  font-style: italic;
+  margin-bottom: 1.8rem;
+  display: block;
+  line-height: 1.6;
+}
+
+/* Options */
+.diag-options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  list-style: none;
+  padding: 0; margin: 0;
+}
+
+.diag-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.95rem 1.2rem;
+  border: 1px solid rgba(240,232,208,0.07);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  position: relative;
+  user-select: none;
+}
+
+.diag-opt:hover {
+  border-color: rgba(201,146,10,0.3);
+  background: rgba(201,146,10,0.04);
+}
+
+.diag-opt.selected {
+  border-color: rgba(201,146,10,0.5);
+  background: rgba(201,146,10,0.08);
+}
+
+.diag-opt.selected .diag-opt-letter {
+  background: #c9920a;
+  color: #0c0f0a;
+  border-color: #c9920a;
+}
+
+.diag-opt-letter {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  color: rgba(201,146,10,0.7);
+  border: 1px solid rgba(201,146,10,0.25);
+  padding: 0.2rem 0.45rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  transition: background 0.25s, color 0.25s;
+}
+
+.diag-opt-text {
+  font-size: 0.9rem;
+  color: rgba(240,232,208,0.75);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.diag-opt.selected .diag-opt-text {
+  color: #f0e8d0;
+}
+
+/* Scale */
+.diag-scale {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.diag-scale-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.1rem 0.5rem;
+  border: 1px solid rgba(240,232,208,0.07);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  gap: 0.4rem;
+  user-select: none;
+}
+
+.diag-scale-btn:hover {
+  border-color: rgba(201,146,10,0.3);
+  background: rgba(201,146,10,0.04);
+}
+
+.diag-scale-btn.selected {
+  border-color: rgba(201,146,10,0.5);
+  background: rgba(201,146,10,0.08);
+}
+
+.diag-scale-num {
+  font-family: 'Fraunces', serif;
+  font-size: 1.4rem;
+  font-style: italic;
+  color: rgba(201,146,10,0.4);
+  line-height: 1;
+  transition: color 0.25s;
+}
+
+.diag-scale-btn.selected .diag-scale-num {
+  color: #e8a820;
+}
+
+.diag-scale-label {
+  font-size: 0.7rem;
+  color: rgba(240,232,208,0.35);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.diag-scale-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.diag-scale-ends span {
+  font-size: 0.72rem;
+  color: rgba(240,232,208,0.35);
+  font-style: italic;
+}
+
+/* Checkbox multi-select */
+.diag-check-opt {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 0.95rem 1.2rem;
+  border: 1px solid rgba(240,232,208,0.07);
+  cursor: pointer;
+  transition: border-color 0.25s, background 0.25s;
+  user-select: none;
+  margin-bottom: 0.6rem;
+}
+
+.diag-check-opt:hover {
+  border-color: rgba(201,146,10,0.3);
+  background: rgba(201,146,10,0.04);
+}
+
+.diag-check-opt.selected {
+  border-color: rgba(201,146,10,0.5);
+  background: rgba(201,146,10,0.08);
+}
+
+.diag-checkbox {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  border: 1px solid rgba(201,146,10,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.1rem;
+  transition: background 0.25s, border-color 0.25s;
+}
+
+.diag-check-opt.selected .diag-checkbox {
+  background: #c9920a;
+  border-color: #c9920a;
+}
+
+.diag-checkbox-tick {
+  color: #0c0f0a;
+  font-size: 0.65rem;
+  display: none;
+}
+
+.diag-check-opt.selected .diag-checkbox-tick {
+  display: block;
+}
+
+.diag-check-text {
+  font-size: 0.9rem;
+  color: rgba(240,232,208,0.75);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.diag-check-opt.selected .diag-check-text {
+  color: #f0e8d0;
+}
+
+/* Email field */
+.diag-email-wrap {
+  margin-bottom: 1rem;
+}
+
+.diag-email-input {
+  width: 100%;
+  background: rgba(240,232,208,0.04);
+  border: 1px solid rgba(240,232,208,0.12);
+  padding: 1rem 1.2rem;
+  color: #f0e8d0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+}
+
+.diag-email-input:focus {
+  border-color: rgba(201,146,10,0.4);
+}
+
+.diag-email-input::placeholder {
+  color: rgba(240,232,208,0.25);
+}
+
+.diag-email-note {
+  font-size: 0.7rem;
+  color: rgba(240,232,208,0.25);
+  font-style: italic;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* Submission status messages */
+.diag-submit-status {
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  font-style: italic;
+  min-height: 1.2em;
+}
+
+.diag-submit-status.sending {
+  color: rgba(201,146,10,0.6);
+}
+
+.diag-submit-status.success {
+  color: rgba(106,170,74,0.8);
+}
+
+.diag-submit-status.error {
+  color: rgba(212,86,10,0.8);
+}
+
+/* Next button */
+.diag-next {
+  margin-top: 1.8rem;
+  background: linear-gradient(135deg, #e8a820, #c9920a);
+  color: #0c0f0a;
+  border: none;
+  padding: 0.95rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.diag-next.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.diag-next.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,146,10,0.3);
+}
+
+.diag-next.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* ── RESULT SCREENS ── */
+.diag-result {
+  display: none;
+}
+
+.diag-result.visible {
+  display: block;
+}
+
+.result-phase-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.result-pain .result-phase-tag {
+  background: rgba(212,86,10,0.12);
+  color: #d4560a;
+}
+
+.result-purpose .result-phase-tag {
+  background: rgba(201,146,10,0.12);
+  color: #e8a820;
+}
+
+.result-shine .result-phase-tag {
+  background: rgba(61,82,41,0.12);
+  color: #6aaa4a;
+}
+
+.result-headline {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 700;
+  color: #f0e8d0;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.result-headline em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+.result-body-text {
+  font-size: 0.92rem;
+  color: rgba(240,232,208,0.65);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.result-cta-block {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(201,146,10,0.15);
+}
+
+.result-cta-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(201,146,10,0.6);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.result-cta-btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #e8a820, #c9920a);
+  color: #0c0f0a;
+  padding: 0.95rem 2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+}
+
+.result-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(201,146,10,0.3);
+}
+
+.result-cta-ghost {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: rgba(240,232,208,0.4);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  margin-left: 1.5rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s, border-color 0.3s;
+  padding-bottom: 2px;
+}
+
+.result-cta-ghost:hover {
+  color: #f0e8d0;
+  border-bottom-color: rgba(240,232,208,0.3);
+}
+
+/* Slide transitions */
+.diag-screen {
+  animation: slideIn 0.4s cubic-bezier(0.16,1,0.3,1) both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Divider line in result */
+.result-divider {
+  height: 1px;
+  background: rgba(201,146,10,0.12);
+  margin: 1.5rem 0;
+}
+
+/* Hidden honeypot — Mailchimp bot protection */
+.mc-honeypot {
+  position: absolute;
+  left: -5000px;
+  aria-hidden: true;
+}
+
+@media (max-width: 520px) {
+  .diag-card { padding: 1.8rem 1.4rem; }
+  .diag-scale { grid-template-columns: repeat(4,1fr); gap: 0.3rem; }
+  .result-cta-ghost { margin-left: 0; margin-top: 0.8rem; display: block; }
+}
+
 
 /* ═══════════════════════════════════════════════════════
    SCHOOL
@@ -383,26 +829,21 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   pointer-events:none}
 .school-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;
   align-items:center;max-width:1200px;margin:0 auto;position:relative;z-index:1}
-
 .school-photo{aspect-ratio:4/5;overflow:hidden;position:relative}
 .school-photo img{width:100%;height:100%;object-fit:cover;object-position:center 30%;
   transition:transform .6s var(--ease)}
 .school-photo:hover img{transform:scale(1.03)}
-
 .school-copy .eyebrow{margin-bottom:1rem}
 .school-heading{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.05;margin-bottom:1.5rem}
 .school-heading em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .school-copy p{font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:1.1rem}
 .school-copy .pull-quote{font-size:1.05rem;margin:1.8rem 0}
-
 .school-features{list-style:none;margin:1.8rem 0 2rem;display:flex;flex-direction:column;gap:.8rem}
 .school-features li{font-size:.92rem;color:var(--muted);display:flex;gap:.85rem;
   align-items:flex-start;line-height:1.6}
 .school-features li::before{content:'✦';color:var(--gold);font-size:.6rem;flex-shrink:0;margin-top:.25rem}
-
-.school-card{background:var(--bg3);border:1px solid var(--border);
-  overflow:hidden;margin-top:0;position:relative}
+.school-card{background:var(--bg3);border:1px solid var(--border);overflow:hidden;position:relative}
 .school-card-header{background:linear-gradient(160deg,#0d1f3c 0%,#1a1200 100%);
   padding:3rem 2rem;text-align:center;position:relative;overflow:hidden}
 .school-card-header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:60%;
@@ -412,8 +853,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .school-card-header p{font-size:.78rem;color:rgba(240,232,208,.55);
   margin-top:.4rem;position:relative;z-index:1;font-style:italic}
 .school-card-body{padding:2rem;text-align:center}
-.school-price{font-family:var(--ff-d);font-size:2.8rem;font-weight:900;
-  color:var(--text);line-height:1}
+.school-price{font-family:var(--ff-d);font-size:2.8rem;font-weight:900;color:var(--text);line-height:1}
 .school-price sub{font-size:.95rem;font-weight:300;font-family:var(--ff-b);
   color:var(--muted);vertical-align:middle}
 .school-trial-note{font-size:.76rem;color:var(--dim);margin:.5rem 0 1.5rem;font-style:italic}
@@ -425,13 +865,11 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .coaching{padding:6rem var(--gut) 7rem;background:var(--bg2)}
 .coaching-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;
   align-items:start;max-width:1200px;margin:0 auto}
-
 .coaching-left .eyebrow{margin-bottom:1rem}
 .coaching-heading{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.05;margin-bottom:1.5rem}
 .coaching-heading em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .coaching-left p{font-size:1rem;line-height:1.9;color:var(--muted);margin-bottom:1rem}
-
 .coaching-cards{display:flex;flex-direction:column;gap:1rem;padding-top:1.5rem}
 .coaching-card{border:1px solid var(--border-soft);padding:2rem 1.8rem;
   position:relative;transition:border-color .3s,background .3s}
@@ -477,8 +915,7 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   font-weight:700;line-height:1.1;margin-bottom:1rem}
 .email-inner h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .email-inner p{font-size:.95rem;color:var(--muted);line-height:1.85;margin-bottom:2rem}
-.email-form{display:flex;border:1px solid rgba(240,232,208,.1);
-  transition:border-color .3s}
+.email-form{display:flex;border:1px solid rgba(240,232,208,.1);transition:border-color .3s}
 .email-form:focus-within{border-color:rgba(201,146,10,.35)}
 .email-form input{flex:1;background:transparent;border:none;
   padding:1rem 1.4rem;color:var(--text);font-family:var(--ff-b);font-size:.9rem;outline:none}
@@ -521,7 +958,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   .method-photo-wrap{max-width:480px}
   .method-badge{bottom:-1rem;right:-.5rem}
 }
-
 @media(max-width:768px){
   :root{--gut:1.5rem}
   .nav-links{display:none}
@@ -542,12 +978,13 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   footer{flex-direction:column;text-align:center;gap:1.2rem}
   .footer-nav{justify-content:center}
   .testi-featured{padding:2rem}
+  .diagnosis-embed{padding:1.5rem 1rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ════════════════ NAV ════════════════ -->
+<!-- NAV -->
 <nav id="site-nav" role="navigation" aria-label="Main navigation">
   <a href="#" class="nav-logo">Mithu Surendra</a>
   <ul class="nav-links">
@@ -570,7 +1007,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   <a href="#coaching" class="ov-cta">Book a Call</a>
 </div>
 
-<!-- ════════════════ HERO ════════════════ -->
+<!-- HERO -->
 <section class="hero" aria-label="Introduction">
   <div class="hero-photo">
     <img src="Profile_Pic.jpg" alt="Mithu Surendra" id="hero-img">
@@ -597,18 +1034,17 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   <div class="hero-scroll" aria-hidden="true">Scroll</div>
 </section>
 
-<!-- ════════════════ DIVIDER STRIP ════════════════ -->
+<!-- DIVIDER STRIP -->
 <div class="strip-divider reveal">
   <div class="strip-divider-line"></div>
   <span class="strip-divider-text">"Guiding humanity back into a state of love."</span>
   <div class="strip-divider-line"></div>
 </div>
 
-<!-- ════════════════ STORY ════════════════ -->
+<!-- STORY -->
 <section id="story" class="story" aria-label="Mithu's story">
   <div class="story-bg-num" aria-hidden="true">01</div>
   <div class="story-layout">
-
     <div class="story-photos reveal">
       <div class="story-photo-main">
         <img src="story_main.jpg" alt="Mithu Surendra">
@@ -617,7 +1053,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
         <img src="story_sub.jpg" alt="Mithu in Bali">
       </div>
     </div>
-
     <div class="story-text">
       <span class="eyebrow reveal">The Story</span>
       <h2 class="story-heading reveal rd1">Born into grief.<br><em>Built into love.</em></h2>
@@ -634,7 +1069,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ METHOD ════════════════ -->
+<!-- METHOD -->
 <section id="method" class="method" aria-label="The Lion Work methodology">
   <div class="method-top">
     <div class="method-photo-wrap reveal">
@@ -654,7 +1089,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       <p style="margin-top:1.5rem;font-size:.92rem;color:var(--dim);font-style:italic;">"Therapy is a good first step — but a bad place to stay. This work opens the human to infinite possibilities."</p>
     </div>
   </div>
-
   <div class="method-phases">
     <div class="phase-row reveal">
       <div class="phase-num-big">01</div>
@@ -680,7 +1114,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ TRANSFORMATION ════════════════ -->
+<!-- TRANSFORMATION -->
 <section class="transform" aria-label="Before and after transformation">
   <div class="transform-header">
     <span class="eyebrow reveal">Where people arrive · Where they land</span>
@@ -717,14 +1151,12 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ TESTIMONIALS ════════════════ -->
+<!-- TESTIMONIALS -->
 <section class="testimonials" aria-label="Client testimonials">
   <div class="testi-header">
     <span class="eyebrow reveal">What people say</span>
     <h2 class="reveal rd1">Real people.<br><em>Real shifts.</em></h2>
   </div>
-
-  <!-- Social proof bar -->
   <div class="reveal" style="max-width:1200px;margin:0 auto 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-soft);">
     <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
       <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">14</div>
@@ -743,7 +1175,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Ongoing client · 3 months</div>
     </div>
   </div>
-
   <div class="testi-featured reveal">
     <span class="testi-featured-tag">Peer Practitioner · Shadow Work &amp; Inner Work Professional</span>
     <div class="testi-featured-name">Emanuele</div>
@@ -751,7 +1182,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     <blockquote>"He's attuned — and that is a very precious gift to have as a healer. His questions came from a place of asking: what is the highest question I can ask right now? I connected to my father during the session — things unsaid and unfelt for years. I left lighter. I left brighter."</blockquote>
     <p class="testi-body">"We have loops in ourselves — I'm not good enough, I won't be able to do this. Through this work you find the original person who told you that. You realise it's just a belief — not reality. And the moment you see it, you can shift it, love it, heal it. It becomes a source of power."</p>
   </div>
-
   <div class="testi-grid">
     <div class="testi-card reveal">
       <span class="testi-mark">"</span>
@@ -780,24 +1210,278 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ SOMATIC DIAGNOSIS ════════════════ -->
+<!-- SOMATIC DIAGNOSIS -->
 <section class="diagnosis" aria-label="Somatic self-diagnosis">
   <div class="diagnosis-inner">
     <span class="eyebrow reveal">Where are you right now?</span>
     <h2 class="reveal rd1">Before anything else —<br><em>find yourself in the work.</em></h2>
     <p class="reveal rd1">This takes five minutes. It's free. It's not a sales funnel — it's a genuine map of where you are in the process. So that if you decide to take a step, you already know which step it is.</p>
-    <div class="diagnosis-embed reveal rd2">
-      <div class="diagnosis-embed-note">
-        Somatic Self-Diagnosis<br>
-        [ Embed tool drops here ]<br>
-        Typeform · Tally · or equivalent
+
+    <!-- ════════════ DIAGNOSTIC FORM — embedded directly ════════════ -->
+    <div class="diagnosis-embed reveal rd2" id="diagWrap">
+
+
+  <!-- Progress -->
+  <div class="diag-progress">
+    <div class="diag-progress-fill" id="diagProgress"></div>
+  </div>
+
+  <!-- Step counter -->
+  <span class="diag-counter" id="diagCounter">Question 1 of 7</span>
+
+  <!-- ── Q1 ── -->
+  <div class="diag-card diag-screen" id="q1">
+    <p class="diag-q">When you think about where you are right now — what's the most honest description?</p>
+    <span class="diag-q-sub">Choose the one that lands closest. There's no wrong answer.</span>
+    <ul class="diag-options">
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q1')">
+        <span class="diag-opt-letter">A</span>
+        <span class="diag-opt-text">I'm in real pain right now — something has to change and I don't know how</span>
+      </li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q1')">
+        <span class="diag-opt-letter">B</span>
+        <span class="diag-opt-text">I know what's wrong but I keep going in circles</span>
+      </li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q1')">
+        <span class="diag-opt-letter">C</span>
+        <span class="diag-opt-text">I'm making progress but something's still blocking me</span>
+      </li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q1')">
+        <span class="diag-opt-letter">D</span>
+        <span class="diag-opt-text">I feel okay — I'm here out of curiosity more than crisis</span>
+      </li>
+    </ul>
+    <button class="diag-next" id="next-q1" onclick="nextQ('q1','q2',2)">Continue →</button>
+  </div>
+
+  <!-- ── Q2 ── -->
+  <div class="diag-card diag-screen" id="q2" style="display:none">
+    <p class="diag-q">How much is this pain affecting your daily life right now?</p>
+    <div class="diag-scale-ends">
+      <span>In the background</span>
+      <span>Taking over everything</span>
+    </div>
+    <div class="diag-scale">
+      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q2')">
+        <span class="diag-scale-num">1</span>
+      </div>
+      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q2')">
+        <span class="diag-scale-num">2</span>
+      </div>
+      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q2')">
+        <span class="diag-scale-num">3</span>
+      </div>
+      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q2')">
+        <span class="diag-scale-num">4</span>
       </div>
     </div>
+    <button class="diag-next" id="next-q2" onclick="nextQ('q2','q3',3)">Continue →</button>
+  </div>
+
+  <!-- ── Q3 ── -->
+  <div class="diag-card diag-screen" id="q3" style="display:none">
+    <p class="diag-q">Have you tried to address this before?</p>
+    <span class="diag-q-sub">Select everything that applies — then continue.</span>
+    <div id="q3-checks">
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
+        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
+        <span class="diag-check-text">Therapy or counselling</span>
+      </div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
+        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
+        <span class="diag-check-text">Coaching or personal development courses</span>
+      </div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
+        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
+        <span class="diag-check-text">Meditation or breathwork</span>
+      </div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
+        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
+        <span class="diag-check-text">Shadow work or spiritual practice</span>
+      </div>
+      <div class="diag-check-opt" id="q3-none" onclick="toggleNone('q3')">
+        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
+        <span class="diag-check-text">I haven't tried anything formally yet</span>
+      </div>
+    </div>
+    <button class="diag-next active" id="next-q3" onclick="nextQCheck('q3','q4',4)">Continue →</button>
+  </div>
+
+  <!-- ── Q4 ── -->
+  <div class="diag-card diag-screen" id="q4" style="display:none">
+    <p class="diag-q">Which of these sounds most like something you've said — or quietly thought?</p>
+    <span class="diag-q-sub">Be honest. This is just between you and yourself.</span>
+    <ul class="diag-options">
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')">
+        <span class="diag-opt-letter">A</span>
+        <span class="diag-opt-text">"I know what I need to do. I just can't seem to actually do it."</span>
+      </li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q4')">
+        <span class="diag-opt-letter">B</span>
+        <span class="diag-opt-text">"I look fine from the outside. Nobody knows how I actually feel."</span>
+      </li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q4')">
+        <span class="diag-opt-letter">C</span>
+        <span class="diag-opt-text">"I've tried things before and felt better for a while — but something's still missing."</span>
+      </li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')">
+        <span class="diag-opt-letter">D</span>
+        <span class="diag-opt-text">"I just want to feel like myself. Actually — for the first time."</span>
+      </li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q4')">
+        <span class="diag-opt-letter">E</span>
+        <span class="diag-opt-text">None of these really describe me.</span>
+      </li>
+    </ul>
+    <button class="diag-next" id="next-q4" onclick="nextQ('q4','q5',5)">Continue →</button>
+  </div>
+
+  <!-- ── Q5 ── -->
+  <div class="diag-card diag-screen" id="q5" style="display:none">
+    <p class="diag-q">When pain or discomfort comes up for you — what do you usually do?</p>
+    <span class="diag-q-sub">The most honest answer. Not the one you want to give.</span>
+    <ul class="diag-options">
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q5')">
+        <span class="diag-opt-letter">A</span>
+        <span class="diag-opt-text">I distract myself — phone, work, anything to not feel it</span>
+      </li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q5')">
+        <span class="diag-opt-letter">B</span>
+        <span class="diag-opt-text">I try to think my way through it — analyse, understand, fix</span>
+      </li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q5')">
+        <span class="diag-opt-letter">C</span>
+        <span class="diag-opt-text">I let myself feel it sometimes, but I usually pull back before it gets too much</span>
+      </li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q5')">
+        <span class="diag-opt-letter">D</span>
+        <span class="diag-opt-text">I try to sit with it, even when it's hard</span>
+      </li>
+    </ul>
+    <button class="diag-next" id="next-q5" onclick="nextQ('q5','q6',6)">Continue →</button>
+  </div>
+
+  <!-- ── Q6 ── -->
+  <div class="diag-card diag-screen" id="q6" style="display:none">
+    <p class="diag-q">How willing are you to do things differently — even if it's uncomfortable?</p>
+    <div class="diag-scale-ends">
+      <span>Not sure I'm ready</span>
+      <span>All in, whatever it takes</span>
+    </div>
+    <div class="diag-scale">
+      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q6')">
+        <span class="diag-scale-num">1</span>
+      </div>
+      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q6')">
+        <span class="diag-scale-num">2</span>
+      </div>
+      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q6')">
+        <span class="diag-scale-num">3</span>
+      </div>
+      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q6')">
+        <span class="diag-scale-num">4</span>
+      </div>
+    </div>
+    <button class="diag-next" id="next-q6" onclick="nextQ('q6','q7',7)">Continue →</button>
+  </div>
+
+  <!-- ── Q7 ── -->
+  <div class="diag-card diag-screen" id="q7" style="display:none">
+    <p class="diag-q">Where are you with your sense of purpose right now?</p>
+    <span class="diag-q-sub">Purpose here means: a sense of what you're for, why you're here, what you're meant to give.</span>
+    <ul class="diag-options">
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q7')">
+        <span class="diag-opt-letter">A</span>
+        <span class="diag-opt-text">I have no idea — I'm just trying to get through each day</span>
+      </li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q7')">
+        <span class="diag-opt-letter">B</span>
+        <span class="diag-opt-text">I have a quiet feeling about it but the pain gets in the way</span>
+      </li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q7')">
+        <span class="diag-opt-letter">C</span>
+        <span class="diag-opt-text">I know what it is but I keep holding back from going for it</span>
+      </li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q7')">
+        <span class="diag-opt-letter">D</span>
+        <span class="diag-opt-text">I'm living it — but something is still blocking me from fully shining</span>
+      </li>
+    </ul>
+    <button class="diag-next" id="next-q7" onclick="nextQ('q7','email',8)">Continue →</button>
+  </div>
+
+  <!-- ── EMAIL ── -->
+  <div class="diag-card diag-screen" id="email" style="display:none">
+    <p class="diag-q">Where should we send your results?</p>
+    <span class="diag-q-sub">Your result will tell you exactly where you are in the journey — and what the right next step is. We'll also send Mithu's teachings and tools to your inbox. No spam, ever.</span>
+    <div class="diag-email-wrap">
+      <input
+        type="email"
+        class="diag-email-input"
+        id="diagEmail"
+        placeholder="Your email address"
+        oninput="checkEmail()"
+      >
+      <span class="diag-email-note">No spam. Unsubscribe whenever you're ready.</span>
+    </div>
+    <!-- Status message -->
+    <div class="diag-submit-status" id="submitStatus"></div>
+    <button class="diag-next" id="next-email" onclick="submitDiag()">Show My Results →</button>
+  </div>
+
+  <!-- ── RESULT: PAIN ── -->
+  <div class="diag-card diag-screen diag-result result-pain" id="result-pain" style="display:none">
+    <span class="result-phase-tag">You are in the Pain phase</span>
+    <h2 class="result-headline">You're carrying something<br><em>heavy right now.</em></h2>
+    <p class="result-body-text">And you've probably been carrying it for a long time. The fact that you're here — that you took five minutes to look at this honestly — that already says something.</p>
+    <p class="result-body-text">You don't need to dive into the deep end yet. What you need first is a room. A safe, real community of people who know exactly what this feels like — guided by someone who has been exactly where you are.</p>
+    <p class="result-body-text">The Self-Love School is that room. Start free. Stay because it's working.</p>
+    <div class="result-divider"></div>
+    <div class="result-cta-block">
+      <span class="result-cta-label">Your next step —</span>
+      <a href="https://skool.com/self-love-school-4884" target="_blank" rel="noopener" class="result-cta-btn">Join the School →</a>
+      <a href="#coaching" class="result-cta-ghost">Or book a call first</a>
+    </div>
+  </div>
+
+  <!-- ── RESULT: PURPOSE ── -->
+  <div class="diag-card diag-screen diag-result result-purpose" id="result-purpose" style="display:none">
+    <span class="result-phase-tag">You are in the Purpose phase</span>
+    <h2 class="result-headline">You know what's wrong.<br><em>You're ready to go through it.</em></h2>
+    <p class="result-body-text">You've done some work on yourself. You've tried things. And you've hit a ceiling — not because the tools were wrong, but because the work you need now lives deeper than any tool can reach.</p>
+    <p class="result-body-text">Therapy is a good first step. But a bad place to stay. What comes next is felt, not thought. And it needs someone who can go there with you — who has already been there themselves.</p>
+    <p class="result-body-text">A discovery call is free. It's not a pitch. It's an honest conversation about where you are and what the right next step is. That's it.</p>
+    <div class="result-divider"></div>
+    <div class="result-cta-block">
+      <span class="result-cta-label">Your next step —</span>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1XzW-NMY1Evdnn6Bn92cn4szgXPNBF-KlOLTe46o4JTMpTr7kolQuR1im8c5PMc9wDbQ3-Xo6a" target="_blank" rel="noopener" class="result-cta-btn">Book a Discovery Call →</a>
+      <a href="https://skool.com/self-love-school-4884" target="_blank" rel="noopener" class="result-cta-ghost">Or explore the school first</a>
+    </div>
+  </div>
+
+  <!-- ── RESULT: SHINE ── -->
+  <div class="diag-card diag-screen diag-result result-shine" id="result-shine" style="display:none">
+    <span class="result-phase-tag">You are in the Shine phase</span>
+    <h2 class="result-headline">You're in the work.<br><em>Something is still holding you back.</em></h2>
+    <p class="result-body-text">You know yourself. You're doing the work. You have purpose. And yet — there's still something. A ceiling you keep hitting. A part of yourself you haven't fully brought into the light.</p>
+    <p class="result-body-text">This is the most specific kind of work. Not for everyone — for you, right now, at this exact point. One-to-one, direct, full presence. No programme, no group. Just the work itself.</p>
+    <p class="result-body-text">If this is calling you, you already know it. The first step is a conversation.</p>
+    <div class="result-divider"></div>
+    <div class="result-cta-block">
+      <span class="result-cta-label">Your next step —</span>
+      <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1XzW-NMY1Evdnn6Bn92cn4szgXPNBF-KlOLTe46o4JTMpTr7kolQuR1im8c5PMc9wDbQ3-Xo6a" target="_blank" rel="noopener" class="result-cta-btn">Book a Discovery Call →</a>
+      <a href="https://skool.com/self-love-school-4884" target="_blank" rel="noopener" class="result-cta-ghost">Or explore the school first</a>
+    </div>
+  </div>
+
+    </div>
+    <!-- ════════════ END DIAGNOSTIC FORM ════════════ -->
+
     <a href="#school" class="cta-ghost reveal rd2">Not ready for the full work yet? Explore the School →</a>
   </div>
 </section>
 
-<!-- ════════════════ SCHOOL ════════════════ -->
+<!-- SCHOOL -->
 <section id="school" class="school" aria-label="Self-Love School">
   <div class="school-glow" aria-hidden="true"></div>
   <div class="school-layout">
@@ -836,7 +1520,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ COACHING ════════════════ -->
+<!-- COACHING -->
 <section id="coaching" class="coaching" aria-label="1-on-1 coaching">
   <div class="coaching-inner">
     <div class="coaching-left">
@@ -866,7 +1550,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ BOOK ════════════════ -->
+<!-- BOOK -->
 <section class="book" aria-label="The book">
   <div class="book-inner">
     <div class="book-photo reveal">
@@ -882,7 +1566,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ EMAIL ════════════════ -->
+<!-- EMAIL -->
 <section class="email-sec" aria-label="Email signup">
   <div class="email-inner">
     <span class="eyebrow reveal">Stay with the work</span>
@@ -896,7 +1580,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </section>
 
-<!-- ════════════════ FOOTER ════════════════ -->
+<!-- FOOTER -->
 <footer>
   <div>
     <div class="footer-logo">Mithu Surendra</div>
@@ -913,7 +1597,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 </footer>
 
-<!-- ════════════════ JS ════════════════ -->
 <script>
 (function(){
   /* ── Nav ── */
@@ -949,7 +1632,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   if(heroImg){
     heroImg.addEventListener('load',()=>heroImg.classList.add('loaded'));
     if(heroImg.complete)heroImg.classList.add('loaded');
-
     window.addEventListener('scroll',()=>{
       const scroll=window.scrollY;
       if(scroll<window.innerHeight){
@@ -957,6 +1639,178 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       }
     },{passive:true});
   }
+})();
+
+/* ── DIAGNOSTIC FORM SCRIPT ── */
+(function() {
+  // ── Mailchimp endpoint (from your embedded form) ──
+  var MC_ACTION = 'https://github.us1.list-manage.com/subscribe/post?u=316789f1ece23f50887e196dc&id=fd48724e22&f_id=00786ee2f0';
+
+  // Score storage
+  var scores = { q1:0, q2:0, q3:0, q4:0, q5:0, q6:0, q7:0 };
+  var totalQuestions = 7;
+
+  // ── Single select ──
+  window.selectOpt = function(el, qid) {
+    var opts = el.parentNode.querySelectorAll('.diag-opt');
+    opts.forEach(function(o) { o.classList.remove('selected'); });
+    el.classList.add('selected');
+    scores[qid] = parseInt(el.getAttribute('data-val'));
+    var btn = document.getElementById('next-' + qid);
+    if (btn) btn.classList.add('active');
+  };
+
+  // ── Scale select ──
+  window.selectScale = function(el, qid) {
+    var btns = el.parentNode.querySelectorAll('.diag-scale-btn');
+    btns.forEach(function(b) { b.classList.remove('selected'); });
+    el.classList.add('selected');
+    scores[qid] = parseInt(el.getAttribute('data-val'));
+    var btn = document.getElementById('next-' + qid);
+    if (btn) btn.classList.add('active');
+  };
+
+  // ── Multi-select (Q3) ──
+  window.toggleCheck = function(el, qid) {
+    var noneEl = document.getElementById(qid + '-none');
+    if (el === noneEl) { return; }
+    if (noneEl && noneEl.classList.contains('selected')) {
+      noneEl.classList.remove('selected');
+    }
+    el.classList.toggle('selected');
+    updateCheckScore(qid);
+  };
+
+  window.toggleNone = function(qid) {
+    var container = document.getElementById(qid + '-checks');
+    var opts = container.querySelectorAll('.diag-check-opt');
+    var noneEl = document.getElementById(qid + '-none');
+    opts.forEach(function(o) {
+      if (o !== noneEl) o.classList.remove('selected');
+    });
+    noneEl.classList.toggle('selected');
+    updateCheckScore(qid);
+  };
+
+  function updateCheckScore(qid) {
+    var container = document.getElementById(qid + '-checks');
+    var noneEl = document.getElementById(qid + '-none');
+    var selected = container.querySelectorAll('.diag-check-opt.selected');
+    var count = 0;
+    selected.forEach(function(s) {
+      if (s !== noneEl) count++;
+    });
+    scores[qid] = Math.min(count, 4);
+  }
+
+  // ── Next question ──
+  window.nextQ = function(current, next, stepNum) {
+    var currentEl = document.getElementById(current);
+    var nextEl = document.getElementById(next);
+    if (!currentEl || !nextEl) return;
+    currentEl.style.display = 'none';
+    nextEl.style.display = 'block';
+    nextEl.classList.add('diag-screen');
+    void nextEl.offsetWidth;
+    updateProgress(stepNum);
+    updateCounter(stepNum, next === 'email' ? 'Almost there' : 'Question ' + stepNum + ' of ' + totalQuestions);
+    window.scrollTo({ top: document.getElementById('diagWrap').offsetTop - 40, behavior: 'smooth' });
+  };
+
+  window.nextQCheck = function(current, next, stepNum) {
+    nextQ(current, next, stepNum);
+  };
+
+  // ── Email validation ──
+  window.checkEmail = function() {
+    var val = document.getElementById('diagEmail').value;
+    var btn = document.getElementById('next-email');
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    btn.classList.toggle('active', valid);
+  };
+
+  // ── Calculate phase ──
+  function calcPhase() {
+    var total = 0;
+    Object.keys(scores).forEach(function(k) { total += scores[k]; });
+    if (total >= 25) return 'shine';
+    if (total >= 17) return 'purpose';
+    return 'pain';
+  }
+
+  // ── Submit to Mailchimp + show result ──
+  window.submitDiag = function() {
+    var email = document.getElementById('diagEmail').value;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+
+    var phase = calcPhase();
+    var btn = document.getElementById('next-email');
+    var statusEl = document.getElementById('submitStatus');
+
+    // Lock the button while submitting
+    btn.classList.add('loading');
+    btn.classList.remove('active');
+    statusEl.textContent = 'Sending…';
+    statusEl.className = 'diag-submit-status sending';
+
+    // Build form data matching Mailchimp field names
+    var formData = new FormData();
+    formData.append('EMAIL', email);
+    // Map phase to a readable tag Mailchimp can filter on
+    // Mailchimp ignores unknown fields submitted via no-cors,
+    // but you can add a MERGE tag called PHASE in your audience
+    // settings to capture this. The field name must match exactly.
+    formData.append('PHASE', phase.toUpperCase()); // e.g. PAIN / PURPOSE / SHINE
+    // Mailchimp honeypot — must be blank
+    formData.append('b_316789f1ece23f50887e196dc_fd48724e22', '');
+
+    // no-cors means we can't read the response body,
+    // so we always treat a network fetch as a success
+    // (Mailchimp's own embedded form works the same way)
+    fetch(MC_ACTION, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors'
+    })
+    .then(function() {
+      showResult(phase);
+    })
+    .catch(function() {
+      // Even on network error, still show the result —
+      // don't block the user experience over an analytics call
+      showResult(phase);
+    });
+  };
+
+  function showResult(phase) {
+    document.getElementById('email').style.display = 'none';
+
+    var resultEl = document.getElementById('result-' + phase);
+    resultEl.style.display = 'block';
+    resultEl.classList.add('visible', 'diag-screen');
+    void resultEl.offsetWidth;
+
+    document.getElementById('diagProgress').parentNode.style.display = 'none';
+    document.getElementById('diagCounter').style.display = 'none';
+
+    window.scrollTo({ top: document.getElementById('diagWrap').offsetTop - 40, behavior: 'smooth' });
+  }
+
+  // ── Progress ──
+  function updateProgress(step) {
+    var pct = ((step - 1) / (totalQuestions + 1)) * 100;
+    document.getElementById('diagProgress').style.width = pct + '%';
+  }
+
+  function updateCounter(step, label) {
+    var c = document.getElementById('diagCounter');
+    c.textContent = label || ('Question ' + step + ' of ' + totalQuestions);
+  }
+
+  // Init
+  updateProgress(1);
+  updateCounter(1, 'Question 1 of ' + totalQuestions);
+
 })();
 </script>
 </body>
