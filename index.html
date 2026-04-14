@@ -323,7 +323,6 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   font-weight:700;line-height:1.1;margin-bottom:1.2rem}
 .diagnosis-inner h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .diagnosis-inner p{font-size:1rem;line-height:1.9;color:var(--muted);max-width:560px;margin:0 auto 2.5rem}
-/* Embed container — overrides placeholder styles once the form is inside */
 .diagnosis-embed{
   background: rgba(240,232,208,.02);
   border: 1px solid rgba(201,146,10,.12);
@@ -334,490 +333,76 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 }
 
 /* ── DIAGNOSTIC FORM CSS ── */
-
-.diag-wrap {
-  width: 100%;
-  max-width: 680px;
-  position: relative;
+.diag-wrap{width:100%;max-width:680px;position:relative}
+.diag-progress{height:2px;background:rgba(201,146,10,0.15);margin-bottom:2.5rem;border-radius:2px;overflow:hidden}
+.diag-progress-fill{height:100%;background:linear-gradient(to right,#c9920a,#e8a820);border-radius:2px;transition:width 0.5s cubic-bezier(0.16,1,0.3,1);width:0%}
+.diag-counter{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,146,10,0.5);margin-bottom:2rem;display:block}
+.diag-card{background:#1a1a12;border:1px solid rgba(201,146,10,0.12);padding:2.5rem 2.8rem;position:relative;overflow:hidden}
+.diag-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,#c9920a,transparent)}
+.diag-q{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.15rem,2.5vw,1.45rem);font-weight:400;color:#f0e8d0;line-height:1.4;margin-bottom:0.6rem}
+.diag-q-sub{font-size:0.82rem;color:rgba(240,232,208,0.45);font-style:italic;margin-bottom:1.8rem;display:block;line-height:1.6}
+.diag-options{display:flex;flex-direction:column;gap:0.65rem;list-style:none;padding:0;margin:0}
+.diag-opt{display:flex;align-items:flex-start;gap:1rem;padding:0.95rem 1.2rem;border:1px solid rgba(240,232,208,0.07);cursor:pointer;transition:border-color 0.25s,background 0.25s;position:relative;user-select:none}
+.diag-opt:hover{border-color:rgba(201,146,10,0.3);background:rgba(201,146,10,0.04)}
+.diag-opt.selected{border-color:rgba(201,146,10,0.5);background:rgba(201,146,10,0.08)}
+.diag-opt.selected .diag-opt-letter{background:#c9920a;color:#0c0f0a;border-color:#c9920a}
+.diag-opt-letter{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;color:rgba(201,146,10,0.7);border:1px solid rgba(201,146,10,0.25);padding:0.2rem 0.45rem;flex-shrink:0;margin-top:0.1rem;transition:background 0.25s,color 0.25s}
+.diag-opt-text{font-size:0.9rem;color:rgba(240,232,208,0.75);line-height:1.55;flex:1}
+.diag-opt.selected .diag-opt-text{color:#f0e8d0}
+.diag-scale{display:grid;grid-template-columns:repeat(4,1fr);gap:0.5rem;margin-bottom:0.5rem}
+.diag-scale-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.1rem 0.5rem;border:1px solid rgba(240,232,208,0.07);cursor:pointer;transition:border-color 0.25s,background 0.25s;gap:0.4rem;user-select:none}
+.diag-scale-btn:hover{border-color:rgba(201,146,10,0.3);background:rgba(201,146,10,0.04)}
+.diag-scale-btn.selected{border-color:rgba(201,146,10,0.5);background:rgba(201,146,10,0.08)}
+.diag-scale-num{font-family:'Fraunces',serif;font-size:1.4rem;font-style:italic;color:rgba(201,146,10,0.4);line-height:1;transition:color 0.25s}
+.diag-scale-btn.selected .diag-scale-num{color:#e8a820}
+.diag-scale-ends{display:flex;justify-content:space-between;margin-bottom:1.5rem}
+.diag-scale-ends span{font-size:0.72rem;color:rgba(240,232,208,0.35);font-style:italic}
+.diag-check-opt{display:flex;align-items:flex-start;gap:1rem;padding:0.95rem 1.2rem;border:1px solid rgba(240,232,208,0.07);cursor:pointer;transition:border-color 0.25s,background 0.25s;user-select:none;margin-bottom:0.6rem}
+.diag-check-opt:hover{border-color:rgba(201,146,10,0.3);background:rgba(201,146,10,0.04)}
+.diag-check-opt.selected{border-color:rgba(201,146,10,0.5);background:rgba(201,146,10,0.08)}
+.diag-checkbox{width:18px;height:18px;min-width:18px;border:1px solid rgba(201,146,10,0.3);display:flex;align-items:center;justify-content:center;margin-top:0.1rem;transition:background 0.25s,border-color 0.25s}
+.diag-check-opt.selected .diag-checkbox{background:#c9920a;border-color:#c9920a}
+.diag-checkbox-tick{color:#0c0f0a;font-size:0.65rem;display:none}
+.diag-check-opt.selected .diag-checkbox-tick{display:block}
+.diag-check-text{font-size:0.9rem;color:rgba(240,232,208,0.75);line-height:1.55;flex:1}
+.diag-check-opt.selected .diag-check-text{color:#f0e8d0}
+.diag-email-wrap{margin-bottom:1rem}
+.diag-email-input{width:100%;background:rgba(240,232,208,0.04);border:1px solid rgba(240,232,208,0.12);padding:1rem 1.2rem;color:#f0e8d0;font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.3s;box-sizing:border-box}
+.diag-email-input:focus{border-color:rgba(201,146,10,0.4)}
+.diag-email-input::placeholder{color:rgba(240,232,208,0.25)}
+.diag-email-note{font-size:0.7rem;color:rgba(240,232,208,0.25);font-style:italic;margin-top:0.5rem;display:block}
+.diag-submit-status{margin-top:0.75rem;font-size:0.78rem;font-style:italic;min-height:1.2em}
+.diag-submit-status.sending{color:rgba(201,146,10,0.6)}
+.diag-submit-status.success{color:rgba(106,170,74,0.8)}
+.diag-submit-status.error{color:rgba(212,86,10,0.8)}
+.diag-next{margin-top:1.8rem;background:linear-gradient(135deg,#e8a820,#c9920a);color:#0c0f0a;border:none;padding:0.95rem 2rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:0.6rem;transition:transform 0.3s,box-shadow 0.3s,opacity 0.3s;opacity:0.4;pointer-events:none}
+.diag-next.active{opacity:1;pointer-events:all}
+.diag-next.active:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,146,10,0.3)}
+.diag-next.loading{opacity:0.6;pointer-events:none}
+.diag-result{display:none}
+.diag-result.visible{display:block}
+.result-phase-tag{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.35em;text-transform:uppercase;display:inline-block;padding:0.3rem 0.8rem;margin-bottom:1.5rem}
+.result-pain .result-phase-tag{background:rgba(212,86,10,0.12);color:#d4560a}
+.result-purpose .result-phase-tag{background:rgba(201,146,10,0.12);color:#e8a820}
+.result-shine .result-phase-tag{background:rgba(61,82,41,0.12);color:#6aaa4a}
+.result-headline{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:700;color:#f0e8d0;line-height:1.15;margin-bottom:1.5rem}
+.result-headline em{font-style:italic;font-weight:300}
+.result-body-text{font-size:0.92rem;color:rgba(240,232,208,0.65);line-height:1.85;margin-bottom:1rem}
+.result-cta-block{margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(201,146,10,0.15)}
+.result-cta-label{font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,146,10,0.6);display:block;margin-bottom:1rem}
+.result-cta-btn{display:inline-block;background:linear-gradient(135deg,#e8a820,#c9920a);color:#0c0f0a;padding:0.95rem 2rem;font-family:'DM Sans',sans-serif;font-size:0.8rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:transform 0.3s,box-shadow 0.3s;border:none}
+.result-cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(201,146,10,0.3)}
+.result-cta-ghost{display:inline-block;font-size:0.8rem;color:rgba(240,232,208,0.4);text-decoration:none;letter-spacing:0.06em;margin-left:1.5rem;border-bottom:1px solid transparent;transition:color 0.3s,border-color 0.3s;padding-bottom:2px}
+.result-cta-ghost:hover{color:#f0e8d0;border-bottom-color:rgba(240,232,208,0.3)}
+.diag-screen{animation:slideIn 0.4s cubic-bezier(0.16,1,0.3,1) both}
+@keyframes slideIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.result-divider{height:1px;background:rgba(201,146,10,0.12);margin:1.5rem 0}
+.mc-honeypot{position:absolute;left:-5000px}
+@media(max-width:520px){
+  .diag-card{padding:1.8rem 1.4rem}
+  .diag-scale{grid-template-columns:repeat(4,1fr);gap:0.3rem}
+  .result-cta-ghost{margin-left:0;margin-top:0.8rem;display:block}
 }
-
-/* Progress bar */
-.diag-progress {
-  height: 2px;
-  background: rgba(201,146,10,0.15);
-  margin-bottom: 2.5rem;
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.diag-progress-fill {
-  height: 100%;
-  background: linear-gradient(to right, #c9920a, #e8a820);
-  border-radius: 2px;
-  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
-  width: 0%;
-}
-
-/* Step counter */
-.diag-counter {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(201,146,10,0.5);
-  margin-bottom: 2rem;
-  display: block;
-}
-
-/* Card */
-.diag-card {
-  background: #1a1a12;
-  border: 1px solid rgba(201,146,10,0.12);
-  padding: 2.5rem 2.8rem;
-  position: relative;
-  overflow: hidden;
-}
-
-.diag-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, transparent, #c9920a, transparent);
-}
-
-/* Question text */
-.diag-q {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(1.15rem, 2.5vw, 1.45rem);
-  font-weight: 400;
-  color: #f0e8d0;
-  line-height: 1.4;
-  margin-bottom: 0.6rem;
-}
-
-.diag-q-sub {
-  font-size: 0.82rem;
-  color: rgba(240,232,208,0.45);
-  font-style: italic;
-  margin-bottom: 1.8rem;
-  display: block;
-  line-height: 1.6;
-}
-
-/* Options */
-.diag-options {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  list-style: none;
-  padding: 0; margin: 0;
-}
-
-.diag-opt {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.95rem 1.2rem;
-  border: 1px solid rgba(240,232,208,0.07);
-  cursor: pointer;
-  transition: border-color 0.25s, background 0.25s;
-  position: relative;
-  user-select: none;
-}
-
-.diag-opt:hover {
-  border-color: rgba(201,146,10,0.3);
-  background: rgba(201,146,10,0.04);
-}
-
-.diag-opt.selected {
-  border-color: rgba(201,146,10,0.5);
-  background: rgba(201,146,10,0.08);
-}
-
-.diag-opt.selected .diag-opt-letter {
-  background: #c9920a;
-  color: #0c0f0a;
-  border-color: #c9920a;
-}
-
-.diag-opt-letter {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.1em;
-  color: rgba(201,146,10,0.7);
-  border: 1px solid rgba(201,146,10,0.25);
-  padding: 0.2rem 0.45rem;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-  transition: background 0.25s, color 0.25s;
-}
-
-.diag-opt-text {
-  font-size: 0.9rem;
-  color: rgba(240,232,208,0.75);
-  line-height: 1.55;
-  flex: 1;
-}
-
-.diag-opt.selected .diag-opt-text {
-  color: #f0e8d0;
-}
-
-/* Scale */
-.diag-scale {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.diag-scale-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.1rem 0.5rem;
-  border: 1px solid rgba(240,232,208,0.07);
-  cursor: pointer;
-  transition: border-color 0.25s, background 0.25s;
-  gap: 0.4rem;
-  user-select: none;
-}
-
-.diag-scale-btn:hover {
-  border-color: rgba(201,146,10,0.3);
-  background: rgba(201,146,10,0.04);
-}
-
-.diag-scale-btn.selected {
-  border-color: rgba(201,146,10,0.5);
-  background: rgba(201,146,10,0.08);
-}
-
-.diag-scale-num {
-  font-family: 'Fraunces', serif;
-  font-size: 1.4rem;
-  font-style: italic;
-  color: rgba(201,146,10,0.4);
-  line-height: 1;
-  transition: color 0.25s;
-}
-
-.diag-scale-btn.selected .diag-scale-num {
-  color: #e8a820;
-}
-
-.diag-scale-label {
-  font-size: 0.7rem;
-  color: rgba(240,232,208,0.35);
-  text-align: center;
-  line-height: 1.3;
-}
-
-.diag-scale-ends {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 1.5rem;
-}
-
-.diag-scale-ends span {
-  font-size: 0.72rem;
-  color: rgba(240,232,208,0.35);
-  font-style: italic;
-}
-
-/* Checkbox multi-select */
-.diag-check-opt {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 0.95rem 1.2rem;
-  border: 1px solid rgba(240,232,208,0.07);
-  cursor: pointer;
-  transition: border-color 0.25s, background 0.25s;
-  user-select: none;
-  margin-bottom: 0.6rem;
-}
-
-.diag-check-opt:hover {
-  border-color: rgba(201,146,10,0.3);
-  background: rgba(201,146,10,0.04);
-}
-
-.diag-check-opt.selected {
-  border-color: rgba(201,146,10,0.5);
-  background: rgba(201,146,10,0.08);
-}
-
-.diag-checkbox {
-  width: 18px;
-  height: 18px;
-  min-width: 18px;
-  border: 1px solid rgba(201,146,10,0.3);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 0.1rem;
-  transition: background 0.25s, border-color 0.25s;
-}
-
-.diag-check-opt.selected .diag-checkbox {
-  background: #c9920a;
-  border-color: #c9920a;
-}
-
-.diag-checkbox-tick {
-  color: #0c0f0a;
-  font-size: 0.65rem;
-  display: none;
-}
-
-.diag-check-opt.selected .diag-checkbox-tick {
-  display: block;
-}
-
-.diag-check-text {
-  font-size: 0.9rem;
-  color: rgba(240,232,208,0.75);
-  line-height: 1.55;
-  flex: 1;
-}
-
-.diag-check-opt.selected .diag-check-text {
-  color: #f0e8d0;
-}
-
-/* Email field */
-.diag-email-wrap {
-  margin-bottom: 1rem;
-}
-
-.diag-email-input {
-  width: 100%;
-  background: rgba(240,232,208,0.04);
-  border: 1px solid rgba(240,232,208,0.12);
-  padding: 1rem 1.2rem;
-  color: #f0e8d0;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.9rem;
-  outline: none;
-  transition: border-color 0.3s;
-  box-sizing: border-box;
-}
-
-.diag-email-input:focus {
-  border-color: rgba(201,146,10,0.4);
-}
-
-.diag-email-input::placeholder {
-  color: rgba(240,232,208,0.25);
-}
-
-.diag-email-note {
-  font-size: 0.7rem;
-  color: rgba(240,232,208,0.25);
-  font-style: italic;
-  margin-top: 0.5rem;
-  display: block;
-}
-
-/* Submission status messages */
-.diag-submit-status {
-  margin-top: 0.75rem;
-  font-size: 0.78rem;
-  font-style: italic;
-  min-height: 1.2em;
-}
-
-.diag-submit-status.sending {
-  color: rgba(201,146,10,0.6);
-}
-
-.diag-submit-status.success {
-  color: rgba(106,170,74,0.8);
-}
-
-.diag-submit-status.error {
-  color: rgba(212,86,10,0.8);
-}
-
-/* Next button */
-.diag-next {
-  margin-top: 1.8rem;
-  background: linear-gradient(135deg, #e8a820, #c9920a);
-  color: #0c0f0a;
-  border: none;
-  padding: 0.95rem 2rem;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  transition: transform 0.3s, box-shadow 0.3s, opacity 0.3s;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.diag-next.active {
-  opacity: 1;
-  pointer-events: all;
-}
-
-.diag-next.active:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201,146,10,0.3);
-}
-
-.diag-next.loading {
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* ── RESULT SCREENS ── */
-.diag-result {
-  display: none;
-}
-
-.diag-result.visible {
-  display: block;
-}
-
-.result-phase-tag {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.58rem;
-  letter-spacing: 0.35em;
-  text-transform: uppercase;
-  display: inline-block;
-  padding: 0.3rem 0.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.result-pain .result-phase-tag {
-  background: rgba(212,86,10,0.12);
-  color: #d4560a;
-}
-
-.result-purpose .result-phase-tag {
-  background: rgba(201,146,10,0.12);
-  color: #e8a820;
-}
-
-.result-shine .result-phase-tag {
-  background: rgba(61,82,41,0.12);
-  color: #6aaa4a;
-}
-
-.result-headline {
-  font-family: 'Fraunces', Georgia, serif;
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  font-weight: 700;
-  color: #f0e8d0;
-  line-height: 1.15;
-  margin-bottom: 1.5rem;
-}
-
-.result-headline em {
-  font-style: italic;
-  font-weight: 300;
-}
-
-.result-body-text {
-  font-size: 0.92rem;
-  color: rgba(240,232,208,0.65);
-  line-height: 1.85;
-  margin-bottom: 1rem;
-}
-
-.result-cta-block {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(201,146,10,0.15);
-}
-
-.result-cta-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.55rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(201,146,10,0.6);
-  display: block;
-  margin-bottom: 1rem;
-}
-
-.result-cta-btn {
-  display: inline-block;
-  background: linear-gradient(135deg, #e8a820, #c9920a);
-  color: #0c0f0a;
-  padding: 0.95rem 2rem;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: none;
-}
-
-.result-cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(201,146,10,0.3);
-}
-
-.result-cta-ghost {
-  display: inline-block;
-  font-size: 0.8rem;
-  color: rgba(240,232,208,0.4);
-  text-decoration: none;
-  letter-spacing: 0.06em;
-  margin-left: 1.5rem;
-  border-bottom: 1px solid transparent;
-  transition: color 0.3s, border-color 0.3s;
-  padding-bottom: 2px;
-}
-
-.result-cta-ghost:hover {
-  color: #f0e8d0;
-  border-bottom-color: rgba(240,232,208,0.3);
-}
-
-/* Slide transitions */
-.diag-screen {
-  animation: slideIn 0.4s cubic-bezier(0.16,1,0.3,1) both;
-}
-
-@keyframes slideIn {
-  from { opacity: 0; transform: translateY(18px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* Divider line in result */
-.result-divider {
-  height: 1px;
-  background: rgba(201,146,10,0.12);
-  margin: 1.5rem 0;
-}
-
-/* Hidden honeypot — Mailchimp bot protection */
-.mc-honeypot {
-  position: absolute;
-  left: -5000px;
-  aria-hidden: true;
-}
-
-@media (max-width: 520px) {
-  .diag-card { padding: 1.8rem 1.4rem; }
-  .diag-scale { grid-template-columns: repeat(4,1fr); gap: 0.3rem; }
-  .result-cta-ghost { margin-left: 0; margin-top: 0.8rem; display: block; }
-}
-
 
 /* ═══════════════════════════════════════════════════════
    SCHOOL
@@ -970,6 +555,8 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   .transform-arrow{display:none}
   .transform-col.before{border-bottom:none}
   .testi-grid{grid-template-columns:1fr}
+  /* EDIT 2: proof bar collapses to 2x2 on mobile */
+  .proof-bar{grid-template-columns:repeat(2,1fr)!important}
   .school-layout{grid-template-columns:1fr;gap:3rem}
   .coaching-inner{grid-template-columns:1fr;gap:3rem}
   .book-inner{grid-template-columns:1fr;gap:2rem}
@@ -1157,7 +744,8 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     <span class="eyebrow reveal">What people say</span>
     <h2 class="reveal rd1">Real people.<br><em>Real shifts.</em></h2>
   </div>
-  <div class="reveal" style="max-width:1200px;margin:0 auto 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-soft);">
+  <!-- EDIT 2: added class proof-bar for mobile 2x2 collapse -->
+  <div class="reveal proof-bar" style="max-width:1200px;margin:0 auto 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-soft);">
     <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
       <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">14</div>
       <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Sessions completed</div>
@@ -1217,219 +805,111 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     <h2 class="reveal rd1">Before anything else —<br><em>find yourself in the work.</em></h2>
     <p class="reveal rd1">This takes five minutes. It's free. It's not a sales funnel — it's a genuine map of where you are in the process. So that if you decide to take a step, you already know which step it is.</p>
 
-    <!-- ════════════ DIAGNOSTIC FORM — embedded directly ════════════ -->
     <div class="diagnosis-embed reveal rd2" id="diagWrap">
 
-
-  <!-- Progress -->
   <div class="diag-progress">
     <div class="diag-progress-fill" id="diagProgress"></div>
   </div>
-
-  <!-- Step counter -->
   <span class="diag-counter" id="diagCounter">Question 1 of 7</span>
 
-  <!-- ── Q1 ── -->
   <div class="diag-card diag-screen" id="q1">
     <p class="diag-q">When you think about where you are right now — what's the most honest description?</p>
     <span class="diag-q-sub">Choose the one that lands closest. There's no wrong answer.</span>
     <ul class="diag-options">
-      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q1')">
-        <span class="diag-opt-letter">A</span>
-        <span class="diag-opt-text">I'm in real pain right now — something has to change and I don't know how</span>
-      </li>
-      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q1')">
-        <span class="diag-opt-letter">B</span>
-        <span class="diag-opt-text">I know what's wrong but I keep going in circles</span>
-      </li>
-      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q1')">
-        <span class="diag-opt-letter">C</span>
-        <span class="diag-opt-text">I'm making progress but something's still blocking me</span>
-      </li>
-      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q1')">
-        <span class="diag-opt-letter">D</span>
-        <span class="diag-opt-text">I feel okay — I'm here out of curiosity more than crisis</span>
-      </li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q1')"><span class="diag-opt-letter">A</span><span class="diag-opt-text">I'm in real pain right now — something has to change and I don't know how</span></li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q1')"><span class="diag-opt-letter">B</span><span class="diag-opt-text">I know what's wrong but I keep going in circles</span></li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q1')"><span class="diag-opt-letter">C</span><span class="diag-opt-text">I'm making progress but something's still blocking me</span></li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q1')"><span class="diag-opt-letter">D</span><span class="diag-opt-text">I feel okay — I'm here out of curiosity more than crisis</span></li>
     </ul>
     <button class="diag-next" id="next-q1" onclick="nextQ('q1','q2',2)">Continue →</button>
   </div>
 
-  <!-- ── Q2 ── -->
   <div class="diag-card diag-screen" id="q2" style="display:none">
     <p class="diag-q">How much is this pain affecting your daily life right now?</p>
-    <div class="diag-scale-ends">
-      <span>In the background</span>
-      <span>Taking over everything</span>
-    </div>
+    <div class="diag-scale-ends"><span>In the background</span><span>Taking over everything</span></div>
     <div class="diag-scale">
-      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q2')">
-        <span class="diag-scale-num">1</span>
-      </div>
-      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q2')">
-        <span class="diag-scale-num">2</span>
-      </div>
-      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q2')">
-        <span class="diag-scale-num">3</span>
-      </div>
-      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q2')">
-        <span class="diag-scale-num">4</span>
-      </div>
+      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q2')"><span class="diag-scale-num">1</span></div>
+      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q2')"><span class="diag-scale-num">2</span></div>
+      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q2')"><span class="diag-scale-num">3</span></div>
+      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q2')"><span class="diag-scale-num">4</span></div>
     </div>
     <button class="diag-next" id="next-q2" onclick="nextQ('q2','q3',3)">Continue →</button>
   </div>
 
-  <!-- ── Q3 ── -->
   <div class="diag-card diag-screen" id="q3" style="display:none">
     <p class="diag-q">Have you tried to address this before?</p>
     <span class="diag-q-sub">Select everything that applies — then continue.</span>
     <div id="q3-checks">
-      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
-        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
-        <span class="diag-check-text">Therapy or counselling</span>
-      </div>
-      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
-        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
-        <span class="diag-check-text">Coaching or personal development courses</span>
-      </div>
-      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
-        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
-        <span class="diag-check-text">Meditation or breathwork</span>
-      </div>
-      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')">
-        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
-        <span class="diag-check-text">Shadow work or spiritual practice</span>
-      </div>
-      <div class="diag-check-opt" id="q3-none" onclick="toggleNone('q3')">
-        <div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div>
-        <span class="diag-check-text">I haven't tried anything formally yet</span>
-      </div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')"><div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div><span class="diag-check-text">Therapy or counselling</span></div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')"><div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div><span class="diag-check-text">Coaching or personal development courses</span></div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')"><div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div><span class="diag-check-text">Meditation or breathwork</span></div>
+      <div class="diag-check-opt" onclick="toggleCheck(this,'q3')"><div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div><span class="diag-check-text">Shadow work or spiritual practice</span></div>
+      <div class="diag-check-opt" id="q3-none" onclick="toggleNone('q3')"><div class="diag-checkbox"><span class="diag-checkbox-tick">✓</span></div><span class="diag-check-text">I haven't tried anything formally yet</span></div>
     </div>
     <button class="diag-next active" id="next-q3" onclick="nextQCheck('q3','q4',4)">Continue →</button>
   </div>
 
-  <!-- ── Q4 ── -->
   <div class="diag-card diag-screen" id="q4" style="display:none">
     <p class="diag-q">Which of these sounds most like something you've said — or quietly thought?</p>
     <span class="diag-q-sub">Be honest. This is just between you and yourself.</span>
     <ul class="diag-options">
-      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')">
-        <span class="diag-opt-letter">A</span>
-        <span class="diag-opt-text">"I know what I need to do. I just can't seem to actually do it."</span>
-      </li>
-      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q4')">
-        <span class="diag-opt-letter">B</span>
-        <span class="diag-opt-text">"I look fine from the outside. Nobody knows how I actually feel."</span>
-      </li>
-      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q4')">
-        <span class="diag-opt-letter">C</span>
-        <span class="diag-opt-text">"I've tried things before and felt better for a while — but something's still missing."</span>
-      </li>
-      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')">
-        <span class="diag-opt-letter">D</span>
-        <span class="diag-opt-text">"I just want to feel like myself. Actually — for the first time."</span>
-      </li>
-      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q4')">
-        <span class="diag-opt-letter">E</span>
-        <span class="diag-opt-text">None of these really describe me.</span>
-      </li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')"><span class="diag-opt-letter">A</span><span class="diag-opt-text">"I know what I need to do. I just can't seem to actually do it."</span></li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q4')"><span class="diag-opt-letter">B</span><span class="diag-opt-text">"I look fine from the outside. Nobody knows how I actually feel."</span></li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q4')"><span class="diag-opt-letter">C</span><span class="diag-opt-text">"I've tried things before and felt better for a while — but something's still missing."</span></li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q4')"><span class="diag-opt-letter">D</span><span class="diag-opt-text">"I just want to feel like myself. Actually — for the first time."</span></li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q4')"><span class="diag-opt-letter">E</span><span class="diag-opt-text">None of these really describe me.</span></li>
     </ul>
     <button class="diag-next" id="next-q4" onclick="nextQ('q4','q5',5)">Continue →</button>
   </div>
 
-  <!-- ── Q5 ── -->
   <div class="diag-card diag-screen" id="q5" style="display:none">
     <p class="diag-q">When pain or discomfort comes up for you — what do you usually do?</p>
     <span class="diag-q-sub">The most honest answer. Not the one you want to give.</span>
     <ul class="diag-options">
-      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q5')">
-        <span class="diag-opt-letter">A</span>
-        <span class="diag-opt-text">I distract myself — phone, work, anything to not feel it</span>
-      </li>
-      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q5')">
-        <span class="diag-opt-letter">B</span>
-        <span class="diag-opt-text">I try to think my way through it — analyse, understand, fix</span>
-      </li>
-      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q5')">
-        <span class="diag-opt-letter">C</span>
-        <span class="diag-opt-text">I let myself feel it sometimes, but I usually pull back before it gets too much</span>
-      </li>
-      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q5')">
-        <span class="diag-opt-letter">D</span>
-        <span class="diag-opt-text">I try to sit with it, even when it's hard</span>
-      </li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q5')"><span class="diag-opt-letter">A</span><span class="diag-opt-text">I distract myself — phone, work, anything to not feel it</span></li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q5')"><span class="diag-opt-letter">B</span><span class="diag-opt-text">I try to think my way through it — analyse, understand, fix</span></li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q5')"><span class="diag-opt-letter">C</span><span class="diag-opt-text">I let myself feel it sometimes, but I usually pull back before it gets too much</span></li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q5')"><span class="diag-opt-letter">D</span><span class="diag-opt-text">I try to sit with it, even when it's hard</span></li>
     </ul>
     <button class="diag-next" id="next-q5" onclick="nextQ('q5','q6',6)">Continue →</button>
   </div>
 
-  <!-- ── Q6 ── -->
   <div class="diag-card diag-screen" id="q6" style="display:none">
     <p class="diag-q">How willing are you to do things differently — even if it's uncomfortable?</p>
-    <div class="diag-scale-ends">
-      <span>Not sure I'm ready</span>
-      <span>All in, whatever it takes</span>
-    </div>
+    <div class="diag-scale-ends"><span>Not sure I'm ready</span><span>All in, whatever it takes</span></div>
     <div class="diag-scale">
-      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q6')">
-        <span class="diag-scale-num">1</span>
-      </div>
-      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q6')">
-        <span class="diag-scale-num">2</span>
-      </div>
-      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q6')">
-        <span class="diag-scale-num">3</span>
-      </div>
-      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q6')">
-        <span class="diag-scale-num">4</span>
-      </div>
+      <div class="diag-scale-btn" data-val="1" onclick="selectScale(this,'q6')"><span class="diag-scale-num">1</span></div>
+      <div class="diag-scale-btn" data-val="2" onclick="selectScale(this,'q6')"><span class="diag-scale-num">2</span></div>
+      <div class="diag-scale-btn" data-val="3" onclick="selectScale(this,'q6')"><span class="diag-scale-num">3</span></div>
+      <div class="diag-scale-btn" data-val="4" onclick="selectScale(this,'q6')"><span class="diag-scale-num">4</span></div>
     </div>
     <button class="diag-next" id="next-q6" onclick="nextQ('q6','q7',7)">Continue →</button>
   </div>
 
-  <!-- ── Q7 ── -->
   <div class="diag-card diag-screen" id="q7" style="display:none">
     <p class="diag-q">Where are you with your sense of purpose right now?</p>
     <span class="diag-q-sub">Purpose here means: a sense of what you're for, why you're here, what you're meant to give.</span>
     <ul class="diag-options">
-      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q7')">
-        <span class="diag-opt-letter">A</span>
-        <span class="diag-opt-text">I have no idea — I'm just trying to get through each day</span>
-      </li>
-      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q7')">
-        <span class="diag-opt-letter">B</span>
-        <span class="diag-opt-text">I have a quiet feeling about it but the pain gets in the way</span>
-      </li>
-      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q7')">
-        <span class="diag-opt-letter">C</span>
-        <span class="diag-opt-text">I know what it is but I keep holding back from going for it</span>
-      </li>
-      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q7')">
-        <span class="diag-opt-letter">D</span>
-        <span class="diag-opt-text">I'm living it — but something is still blocking me from fully shining</span>
-      </li>
+      <li class="diag-opt" data-val="1" onclick="selectOpt(this,'q7')"><span class="diag-opt-letter">A</span><span class="diag-opt-text">I have no idea — I'm just trying to get through each day</span></li>
+      <li class="diag-opt" data-val="2" onclick="selectOpt(this,'q7')"><span class="diag-opt-letter">B</span><span class="diag-opt-text">I have a quiet feeling about it but the pain gets in the way</span></li>
+      <li class="diag-opt" data-val="3" onclick="selectOpt(this,'q7')"><span class="diag-opt-letter">C</span><span class="diag-opt-text">I know what it is but I keep holding back from going for it</span></li>
+      <li class="diag-opt" data-val="4" onclick="selectOpt(this,'q7')"><span class="diag-opt-letter">D</span><span class="diag-opt-text">I'm living it — but something is still blocking me from fully shining</span></li>
     </ul>
     <button class="diag-next" id="next-q7" onclick="nextQ('q7','email',8)">Continue →</button>
   </div>
 
-  <!-- ── EMAIL ── -->
+  <!-- EMAIL — EDIT 1: button active by default, email is optional -->
   <div class="diag-card diag-screen" id="email" style="display:none">
     <p class="diag-q">Where should we send your results?</p>
-    <span class="diag-q-sub">Your result will tell you exactly where you are in the journey — and what the right next step is. We'll also send Mithu's teachings and tools to your inbox. No spam, ever.</span>
+    <span class="diag-q-sub">Optional — enter your email and we'll send Mithu's teachings to your inbox. Or skip straight to your result.</span>
     <div class="diag-email-wrap">
-      <input
-        type="email"
-        class="diag-email-input"
-        id="diagEmail"
-        placeholder="Your email address"
-        oninput="checkEmail()"
-      >
+      <input type="email" class="diag-email-input" id="diagEmail" placeholder="Your email address (optional)">
       <span class="diag-email-note">No spam. Unsubscribe whenever you're ready.</span>
     </div>
-    <!-- Status message -->
     <div class="diag-submit-status" id="submitStatus"></div>
-    <button class="diag-next" id="next-email" onclick="submitDiag()">Show My Results →</button>
+    <button class="diag-next active" id="next-email" onclick="submitDiag()">Show My Results →</button>
   </div>
 
-  <!-- ── RESULT: PAIN ── -->
   <div class="diag-card diag-screen diag-result result-pain" id="result-pain" style="display:none">
     <span class="result-phase-tag">You are in the Pain phase</span>
     <h2 class="result-headline">You're carrying something<br><em>heavy right now.</em></h2>
@@ -1444,7 +924,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     </div>
   </div>
 
-  <!-- ── RESULT: PURPOSE ── -->
   <div class="diag-card diag-screen diag-result result-purpose" id="result-purpose" style="display:none">
     <span class="result-phase-tag">You are in the Purpose phase</span>
     <h2 class="result-headline">You know what's wrong.<br><em>You're ready to go through it.</em></h2>
@@ -1459,7 +938,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     </div>
   </div>
 
-  <!-- ── RESULT: SHINE ── -->
   <div class="diag-card diag-screen diag-result result-shine" id="result-shine" style="display:none">
     <span class="result-phase-tag">You are in the Shine phase</span>
     <h2 class="result-headline">You're in the work.<br><em>Something is still holding you back.</em></h2>
@@ -1475,8 +953,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   </div>
 
     </div>
-    <!-- ════════════ END DIAGNOSTIC FORM ════════════ -->
-
     <a href="#school" class="cta-ghost reveal rd2">Not ready for the full work yet? Explore the School →</a>
   </div>
 </section>
@@ -1599,7 +1075,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
 
 <script>
 (function(){
-  /* ── Nav ── */
   const nav    = document.getElementById('site-nav');
   const burger = document.getElementById('nav-burger');
   const overlay= document.getElementById('nav-overlay');
@@ -1618,16 +1093,13 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   overlay.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
   document.addEventListener('keydown',e=>{if(e.key==='Escape')toggleMenu(false);});
 
-  /* ── Scroll reveal ── */
   const ro=new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){e.target.classList.add('visible');ro.unobserve(e.target);}
     });
   },{threshold:0.08,rootMargin:'0px 0px -40px 0px'});
-
   document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-  /* ── Hero image parallax + load ── */
   const heroImg=document.getElementById('hero-img');
   if(heroImg){
     heroImg.addEventListener('load',()=>heroImg.classList.add('loaded'));
@@ -1643,14 +1115,10 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
 
 /* ── DIAGNOSTIC FORM SCRIPT ── */
 (function() {
-  // ── Mailchimp endpoint (from your embedded form) ──
   var MC_ACTION = 'https://github.us1.list-manage.com/subscribe/post?u=316789f1ece23f50887e196dc&id=fd48724e22&f_id=00786ee2f0';
-
-  // Score storage
   var scores = { q1:0, q2:0, q3:0, q4:0, q5:0, q6:0, q7:0 };
   var totalQuestions = 7;
 
-  // ── Single select ──
   window.selectOpt = function(el, qid) {
     var opts = el.parentNode.querySelectorAll('.diag-opt');
     opts.forEach(function(o) { o.classList.remove('selected'); });
@@ -1660,7 +1128,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     if (btn) btn.classList.add('active');
   };
 
-  // ── Scale select ──
   window.selectScale = function(el, qid) {
     var btns = el.parentNode.querySelectorAll('.diag-scale-btn');
     btns.forEach(function(b) { b.classList.remove('selected'); });
@@ -1670,7 +1137,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     if (btn) btn.classList.add('active');
   };
 
-  // ── Multi-select (Q3) ──
   window.toggleCheck = function(el, qid) {
     var noneEl = document.getElementById(qid + '-none');
     if (el === noneEl) { return; }
@@ -1703,7 +1169,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     scores[qid] = Math.min(count, 4);
   }
 
-  // ── Next question ──
   window.nextQ = function(current, next, stepNum) {
     var currentEl = document.getElementById(current);
     var nextEl = document.getElementById(next);
@@ -1721,15 +1186,9 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     nextQ(current, next, stepNum);
   };
 
-  // ── Email validation ──
-  window.checkEmail = function() {
-    var val = document.getElementById('diagEmail').value;
-    var btn = document.getElementById('next-email');
-    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-    btn.classList.toggle('active', valid);
-  };
+  /* EDIT 1: email is optional — no validation gate */
+  window.checkEmail = function() {};
 
-  // ── Calculate phase ──
   function calcPhase() {
     var total = 0;
     Object.keys(scores).forEach(function(k) { total += scores[k]; });
@@ -1738,65 +1197,33 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     return 'pain';
   }
 
-  // ── Submit to Mailchimp + show result ──
+  /* EDIT 1: submit to Mailchimp only if email provided */
   window.submitDiag = function() {
     var email = document.getElementById('diagEmail').value;
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
-
     var phase = calcPhase();
-    var btn = document.getElementById('next-email');
-    var statusEl = document.getElementById('submitStatus');
 
-    // Lock the button while submitting
-    btn.classList.add('loading');
-    btn.classList.remove('active');
-    statusEl.textContent = 'Sending…';
-    statusEl.className = 'diag-submit-status sending';
+    if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      var formData = new FormData();
+      formData.append('EMAIL', email);
+      formData.append('PHASE', phase.toUpperCase());
+      formData.append('b_316789f1ece23f50887e196dc_fd48724e22', '');
+      fetch(MC_ACTION, { method: 'POST', body: formData, mode: 'no-cors' }).catch(function(){});
+    }
 
-    // Build form data matching Mailchimp field names
-    var formData = new FormData();
-    formData.append('EMAIL', email);
-    // Map phase to a readable tag Mailchimp can filter on
-    // Mailchimp ignores unknown fields submitted via no-cors,
-    // but you can add a MERGE tag called PHASE in your audience
-    // settings to capture this. The field name must match exactly.
-    formData.append('PHASE', phase.toUpperCase()); // e.g. PAIN / PURPOSE / SHINE
-    // Mailchimp honeypot — must be blank
-    formData.append('b_316789f1ece23f50887e196dc_fd48724e22', '');
-
-    // no-cors means we can't read the response body,
-    // so we always treat a network fetch as a success
-    // (Mailchimp's own embedded form works the same way)
-    fetch(MC_ACTION, {
-      method: 'POST',
-      body: formData,
-      mode: 'no-cors'
-    })
-    .then(function() {
-      showResult(phase);
-    })
-    .catch(function() {
-      // Even on network error, still show the result —
-      // don't block the user experience over an analytics call
-      showResult(phase);
-    });
+    showResult(phase);
   };
 
   function showResult(phase) {
     document.getElementById('email').style.display = 'none';
-
     var resultEl = document.getElementById('result-' + phase);
     resultEl.style.display = 'block';
     resultEl.classList.add('visible', 'diag-screen');
     void resultEl.offsetWidth;
-
     document.getElementById('diagProgress').parentNode.style.display = 'none';
     document.getElementById('diagCounter').style.display = 'none';
-
     window.scrollTo({ top: document.getElementById('diagWrap').offsetTop - 40, behavior: 'smooth' });
   }
 
-  // ── Progress ──
   function updateProgress(step) {
     var pct = ((step - 1) / (totalQuestions + 1)) * 100;
     document.getElementById('diagProgress').style.width = pct + '%';
@@ -1807,7 +1234,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     c.textContent = label || ('Question ' + step + ' of ' + totalQuestions);
   }
 
-  // Init
   updateProgress(1);
   updateCounter(1, 'Question 1 of ' + totalQuestions);
 
