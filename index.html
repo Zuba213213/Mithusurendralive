@@ -157,7 +157,14 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .hero-title .t3{display:block;color:var(--text);font-size:.72em;font-weight:700;
   font-style:normal;padding-top:.2em}
-.hero-sub{font-size:1rem;line-height:1.9;color:var(--muted);max-width:400px;margin-bottom:2.2rem}
+.hero-sub{font-size:1rem;line-height:1.9;color:var(--muted);max-width:400px;margin-bottom:1.4rem}
+
+/* CHANGE: therapy ceiling callout in hero */
+.hero-therapy-line{font-family:var(--ff-d);font-style:italic;font-weight:300;
+  font-size:.92rem;color:var(--gold-w);opacity:.85;
+  border-left:2px solid var(--gold);padding-left:1rem;
+  max-width:400px;margin-bottom:2rem;line-height:1.6}
+
 .hero-ctas{display:flex;flex-direction:column;gap:.9rem;align-items:flex-start}
 .hero-scroll{position:absolute;bottom:2.5rem;right:2.5rem;z-index:4;
   writing-mode:vertical-rl;font-size:.62rem;letter-spacing:.3em;
@@ -205,6 +212,17 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .story-photo-sub img{width:100%;height:100%;object-fit:cover;object-position:center 40%;
   transition:transform .6s var(--ease)}
 .story-photo-sub:hover img{transform:scale(1.03)}
+
+/* CHANGE: hand photo slot */
+.story-photo-hand{aspect-ratio:1/1;overflow:hidden;position:relative;
+  border:1px solid var(--border-mid)}
+.story-photo-hand img{width:100%;height:100%;object-fit:cover;object-position:center}
+.story-photo-hand-placeholder{display:flex;align-items:center;justify-content:center;
+  aspect-ratio:1/1;border:1px dashed rgba(201,146,10,.3);
+  background:rgba(201,146,10,.03);padding:2rem;text-align:center}
+.story-photo-hand-placeholder span{font-family:var(--ff-m);font-size:.55rem;
+  letter-spacing:.2em;text-transform:uppercase;color:rgba(201,146,10,.4);line-height:1.8}
+
 .story-heading{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.1;margin-bottom:1.8rem}
 .story-heading em{font-style:italic;font-weight:300;color:var(--gold-w)}
@@ -279,6 +297,27 @@ img{display:block;width:100%;height:100%;object-fit:cover}
 .testi-header h2{font-family:var(--ff-d);font-size:clamp(1.8rem,3.5vw,2.8rem);
   font-weight:700;line-height:1.1;margin-top:.6rem}
 .testi-header h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
+
+/* CHANGE: peer review block — distinct styling, clearly not a client result */
+.testi-peer{max-width:1200px;margin:0 auto 3rem;
+  background:rgba(240,232,208,.02);border:1px solid rgba(240,232,208,.08);
+  padding:2.5rem 3rem;position:relative;overflow:hidden}
+.testi-peer-label{display:inline-flex;align-items:center;gap:.6rem;
+  font-family:var(--ff-m);font-size:.52rem;letter-spacing:.3em;
+  text-transform:uppercase;color:var(--dim);
+  border:1px solid rgba(240,232,208,.1);padding:.35rem .85rem;
+  margin-bottom:1.5rem}
+.testi-peer-label::before{content:'◈';font-size:.55rem;color:var(--dim)}
+.testi-peer-name{font-family:var(--ff-d);font-size:1rem;font-weight:400;
+  color:var(--muted);margin-bottom:.2rem}
+.testi-peer-context{font-family:var(--ff-m);font-size:.52rem;letter-spacing:.12em;
+  color:rgba(240,232,208,.2);text-transform:uppercase;margin-bottom:1.5rem;display:block}
+.testi-peer blockquote{font-family:var(--ff-d);font-style:italic;font-weight:300;
+  font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--muted);line-height:1.7;
+  border-left:1px solid rgba(240,232,208,.15);padding-left:1.4rem;margin-bottom:1.2rem}
+.testi-peer .testi-body{font-size:.88rem;color:rgba(240,232,208,.4);line-height:1.8}
+
+/* CHANGE: Tim's card elevated to featured position */
 .testi-featured{max-width:1200px;margin:0 auto 3rem;
   background:var(--bg3);border:1px solid var(--border);
   padding:3rem 3.5rem;position:relative;overflow:hidden}
@@ -292,10 +331,9 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   color:var(--dim);text-transform:uppercase;margin-bottom:1.8rem;display:block}
 .testi-featured blockquote{font-family:var(--ff-d);font-style:italic;font-weight:300;
   font-size:clamp(1rem,2vw,1.25rem);color:var(--text);line-height:1.7;
-  border-left:2px solid var(--gold);padding-left:1.6rem;margin-bottom:1.5rem}
-.testi-featured .testi-body{font-size:.93rem;color:var(--muted);line-height:1.8}
-.testi-featured .testi-body+.testi-body{margin-top:.8rem}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;max-width:1200px;margin:0 auto}
+  border-left:2px solid var(--gold);padding-left:1.6rem}
+
+.testi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;max-width:1200px;margin:0 auto}
 .testi-card{border:1px solid var(--border-soft);padding:2rem 1.8rem;
   position:relative;display:flex;flex-direction:column;gap:1rem;
   transition:border-color .3s,transform .3s}
@@ -486,8 +524,22 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   font-weight:700;line-height:1.1;margin-bottom:1rem}
 .book-copy h2 em{font-style:italic;font-weight:300;color:var(--gold-w)}
 .book-copy p{font-size:.95rem;line-height:1.9;color:var(--muted);margin-bottom:1rem}
-.book-copy .coming{font-family:var(--ff-m);font-size:.55rem;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--dim);margin-top:1.2rem;display:block}
+
+/* CHANGE: book notify form replacing dead "coming soon" */
+.book-notify{display:flex;margin-top:1.4rem;border:1px solid rgba(240,232,208,.1);
+  transition:border-color .3s;max-width:380px}
+.book-notify:focus-within{border-color:rgba(201,146,10,.35)}
+.book-notify input{flex:1;background:transparent;border:none;
+  padding:.85rem 1.2rem;color:var(--text);font-family:var(--ff-b);font-size:.85rem;outline:none}
+.book-notify input::placeholder{color:var(--dim)}
+.book-notify button{background:var(--gold);color:var(--bg);border:none;
+  padding:.85rem 1.2rem;font-family:var(--ff-b);font-size:.72rem;font-weight:500;
+  letter-spacing:.08em;text-transform:uppercase;cursor:pointer;
+  transition:background .3s;white-space:nowrap}
+.book-notify button:hover{background:var(--gold-b)}
+.book-notify-note{font-size:.68rem;color:var(--dim);font-style:italic;margin-top:.6rem}
+.book-notify-thanks{font-family:var(--ff-d);font-style:italic;font-size:.92rem;
+  color:var(--gold-w);margin-top:1rem;display:none}
 
 /* ═══════════════════════════════════════════════════════
    EMAIL CAPTURE
@@ -511,6 +563,8 @@ img{display:block;width:100%;height:100%;object-fit:cover}
   transition:background .3s;white-space:nowrap}
 .email-form button:hover{background:var(--gold-b)}
 .email-note{margin-top:.9rem;font-size:.68rem;color:var(--dim);font-style:italic}
+.email-thanks{font-family:var(--ff-d);font-style:italic;font-size:1rem;
+  color:var(--gold-w);margin-top:1rem;display:none}
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
@@ -555,15 +609,15 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   .transform-arrow{display:none}
   .transform-col.before{border-bottom:none}
   .testi-grid{grid-template-columns:1fr}
-  /* EDIT 2: proof bar collapses to 2x2 on mobile */
-  .proof-bar{grid-template-columns:repeat(2,1fr)!important}
   .school-layout{grid-template-columns:1fr;gap:3rem}
   .coaching-inner{grid-template-columns:1fr;gap:3rem}
   .book-inner{grid-template-columns:1fr;gap:2rem}
   .book-photo{max-width:240px}
   .email-form{flex-direction:column}
+  .book-notify{flex-direction:column;max-width:100%}
   footer{flex-direction:column;text-align:center;gap:1.2rem}
   .footer-nav{justify-content:center}
+  .testi-peer{padding:1.8rem}
   .testi-featured{padding:2rem}
   .diagnosis-embed{padding:1.5rem 1rem}
 }
@@ -613,6 +667,8 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       <span class="t3">the fuel.</span>
     </h1>
     <p class="hero-sub">I spent years hiding the part of me I was most ashamed of. Then I chose to love myself so completely — so unconditionally — that the hiding stopped mattering. That choice became this work. And this work is yours now, if you want it.</p>
+    <!-- CHANGE: therapy ceiling line surfaced to hero -->
+    <p class="hero-therapy-line">Therapy is a good first step — but a bad place to stay.</p>
     <div class="hero-ctas">
       <a href="#method" class="cta-main">Explore the Work</a>
       <a href="#coaching" class="cta-ghost">Work with Mithu directly</a>
@@ -639,6 +695,10 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       <div class="story-photo-sub">
         <img src="story_sub.jpg" alt="Mithu in Bali">
       </div>
+      <!-- CHANGE: hand photo slot — replace placeholder div with <img src="hand_photo.jpg"> when asset is ready -->
+      <div class="story-photo-hand-placeholder">
+        <span>Hand photo<br>— add asset here —<br>This is the symbol<br>the work is built on.</span>
+      </div>
     </div>
     <div class="story-text">
       <span class="eyebrow reveal">The Story</span>
@@ -650,7 +710,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
         <p class="reveal rd3">At 24, I hit the floor. I was suicidal, alone, and I made a choice — the only choice that actually matters. I chose to live. And then, bit by bit, I pulled myself out.</p>
         <p class="reveal rd3">At a trauma healing workshop, I stood in front of 200 people and held up the hand that God uniquely crafted for me — but that society had told me was wrong. Something sealed for twenty two years cracked open in that room. That moment was the first act of the work I was born to do.</p>
         <blockquote class="pull-quote reveal rd3">"Giving up gave me peace. Giving up gave me hope. Giving up helped me connect with God."</blockquote>
-        <p class="reveal rd4">I moved to Bali in August 2025. Lost, and not knowing what came next, I asked God what I should do. And God said it — clearly, repeatedly, like a shout: Write the book. Write the book. Write the book. So I did."</p>
+        <p class="reveal rd4">I moved to Bali in August 2025. Lost, and not knowing what came next, I asked God what I should do. And God said it — clearly, repeatedly, like a shout: Write the book. Write the book. Write the book. So I did.</p>
       </div>
     </div>
   </div>
@@ -739,47 +799,26 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
 </section>
 
 <!-- TESTIMONIALS -->
+<!-- CHANGE: stats block removed entirely -->
+<!-- CHANGE: Tim elevated to featured, Emanuele demoted to peer-review with distinct styling -->
+<!-- CHANGE: testi-grid reduced to 2 columns (Fatima + Dylan) -->
 <section class="testimonials" aria-label="Client testimonials">
   <div class="testi-header">
     <span class="eyebrow reveal">What people say</span>
     <h2 class="reveal rd1">Real people.<br><em>Real shifts.</em></h2>
   </div>
-  <!-- EDIT 2: added class proof-bar for mobile 2x2 collapse -->
-  <div class="reveal proof-bar" style="max-width:1200px;margin:0 auto 3rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border-soft);">
-    <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">14</div>
-      <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Sessions completed</div>
-    </div>
-    <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">3</div>
-      <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Continents of work</div>
-    </div>
-    <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">10/10</div>
-      <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Every rating given</div>
-    </div>
-    <div style="background:var(--bg3);padding:1.8rem;text-align:center;">
-      <div style="font-family:'Fraunces',serif;font-size:2.2rem;font-style:italic;color:var(--gold-w);line-height:1;">1</div>
-      <div style="font-family:'Space Mono',monospace;font-size:.52rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);margin-top:.4rem;">Ongoing client · 3 months</div>
-    </div>
-  </div>
+
+  <!-- Tim — elevated to featured -->
   <div class="testi-featured reveal">
-    <span class="testi-featured-tag">Peer Practitioner · Shadow Work &amp; Inner Work Professional</span>
-    <div class="testi-featured-name">Emanuele</div>
-    <span class="testi-featured-context">Practitioner of shadow work, inner work &amp; hypnosis · Reviewed Mithu as a peer</span>
-    <blockquote>"He's attuned — and that is a very precious gift to have as a healer. His questions came from a place of asking: what is the highest question I can ask right now? I connected to my father during the session — things unsaid and unfelt for years. I left lighter. I left brighter."</blockquote>
-    <p class="testi-body">"We have loops in ourselves — I'm not good enough, I won't be able to do this. Through this work you find the original person who told you that. You realise it's just a belief — not reality. And the moment you see it, you can shift it, love it, heal it. It becomes a source of power."</p>
+    <span class="testi-featured-tag">3 months ongoing · Group + 1-on-1</span>
+    <div class="testi-featured-name">Tim Mathias</div>
+    <span class="testi-featured-context">Ongoing client · 3 months</span>
+    <blockquote>"I trust you wholeheartedly with whatever comes up. I'm not ashamed to tell you anything — and that's a very good sign. It feels like I have a big backup waiting for me — someone taking my hand on this journey. I needed a masculine container to allow things to flow — and you can see exactly what I need. It really fits. What can you wish more?"</blockquote>
   </div>
+
+  <!-- Fatima + Dylan -->
   <div class="testi-grid">
     <div class="testi-card reveal">
-      <span class="testi-mark">"</span>
-      <p class="testi-quote">I trust you wholeheartedly with whatever comes up. I'm not ashamed to tell you anything — and that's a very good sign. It feels like I have a big backup waiting for me — someone taking my hand on this journey.</p>
-      <div class="testi-who">
-        <span class="testi-name">Tim Mathias</span>
-        <span class="testi-role">3 months ongoing · Group + 1-on-1</span>
-      </div>
-    </div>
-    <div class="testi-card reveal rd1">
       <span class="testi-mark">"</span>
       <p class="testi-quote">It feels like I already achieved it. I needed a masculine container to allow things to flow — and you can see exactly what I need. It really fits. What can you wish more?</p>
       <div class="testi-who">
@@ -787,7 +826,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
         <span class="testi-role">Trial session → Joined Lions</span>
       </div>
     </div>
-    <div class="testi-card reveal rd2">
+    <div class="testi-card reveal rd1">
       <span class="testi-mark">"</span>
       <p class="testi-quote">Going deeper into the why — not the surface level, but what's further down — gave me a massive sense of relief.</p>
       <div class="testi-who">
@@ -795,6 +834,15 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
         <span class="testi-role">Trial session</span>
       </div>
     </div>
+  </div>
+
+  <!-- Emanuele — peer review, clearly labelled, visually subdued -->
+  <div class="testi-peer reveal" style="margin-top:1.2rem;">
+    <div class="testi-peer-label">Peer Review — not a client result</div>
+    <div class="testi-peer-name">Emanuele</div>
+    <span class="testi-peer-context">Practitioner of shadow work, inner work &amp; hypnosis · Colleague review</span>
+    <blockquote>"He's attuned — and that is a very precious gift to have as a healer. His questions came from a place of asking: what is the highest question I can ask right now? I connected to my father during the session — things unsaid and unfelt for years. I left lighter. I left brighter."</blockquote>
+    <p class="testi-body">"We have loops in ourselves — I'm not good enough, I won't be able to do this. Through this work you find the original person who told you that. You realise it's just a belief — not reality. And the moment you see it, you can shift it, love it, heal it. It becomes a source of power."</p>
   </div>
 </section>
 
@@ -898,7 +946,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     <button class="diag-next" id="next-q7" onclick="nextQ('q7','email',8)">Continue →</button>
   </div>
 
-  <!-- EMAIL — EDIT 1: button active by default, email is optional -->
   <div class="diag-card diag-screen" id="email" style="display:none">
     <p class="diag-q">Where should we send your results?</p>
     <span class="diag-q-sub">Optional — enter your email and we'll send Mithu's teachings to your inbox. Or skip straight to your result.</span>
@@ -1027,6 +1074,7 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
 </section>
 
 <!-- BOOK -->
+<!-- CHANGE: "purchase link coming soon" replaced with email notify capture -->
 <section class="book" aria-label="The book">
   <div class="book-inner">
     <div class="book-photo reveal">
@@ -1037,22 +1085,31 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
       <h2 class="reveal rd1"><em>What's Your Biggest Pain?</em></h2>
       <p class="reveal rd1">Written in five days in Ubud, Bali. Channeled, not planned. It came out of asking God what to do — and then doing it. This book is the work in written form: direct, honest, and built for people who are ready to stop running.</p>
       <p class="reveal rd2">If the work on this page moved something in you — the book goes deeper.</p>
-      <span class="coming reveal rd2">Purchase link coming soon</span>
+      <div class="reveal rd2">
+        <div class="book-notify" id="bookNotifyForm">
+          <input type="email" id="bookEmail" placeholder="Your email — notify me when it drops">
+          <button type="button" onclick="bookNotify()">Notify Me</button>
+        </div>
+        <p class="book-notify-note">No spam. Just a single email when it's live.</p>
+        <p class="book-notify-thanks" id="bookThanks">You're on the list. We'll be in touch.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- EMAIL -->
+<!-- CHANGE: footer email form wired to Mailchimp -->
 <section class="email-sec" aria-label="Email signup">
   <div class="email-inner">
     <span class="eyebrow reveal">Stay with the work</span>
     <h2 class="reveal rd1">You don't have to<br><em>walk this alone.</em></h2>
     <p class="reveal rd1">Mithu's teachings, tools, and honest words — straight to your inbox. No noise. Just the work, when you need it.</p>
-    <div class="email-form reveal rd2">
-      <input type="email" placeholder="Your email address" aria-label="Email address">
-      <button type="button">I'm In</button>
+    <div class="email-form reveal rd2" id="mainEmailForm">
+      <input type="email" id="mainEmail" placeholder="Your email address" aria-label="Email address">
+      <button type="button" onclick="mainEmailSubmit()">I'm In</button>
     </div>
     <p class="email-note reveal rd2">No spam. Unsubscribe whenever you're ready.</p>
+    <p class="email-thanks" id="emailThanks">You're in. Mithu's words are on their way.</p>
   </div>
 </section>
 
@@ -1113,9 +1170,48 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
   }
 })();
 
+/* ── MAILCHIMP ACTION ── */
+var MC_ACTION = 'https://github.us1.list-manage.com/subscribe/post?u=316789f1ece23f50887e196dc&id=fd48724e22&f_id=00786ee2f0';
+
+function mcSubmit(email, tag, onSuccess) {
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return false;
+  var fd = new FormData();
+  fd.append('EMAIL', email);
+  if (tag) fd.append('TAGS', tag);
+  fd.append('b_316789f1ece23f50887e196dc_fd48724e22', '');
+  fetch(MC_ACTION, { method:'POST', body:fd, mode:'no-cors' })
+    .then(onSuccess).catch(onSuccess);
+  return true;
+}
+
+/* CHANGE: main email footer form */
+window.mainEmailSubmit = function() {
+  var email = document.getElementById('mainEmail').value;
+  var ok = mcSubmit(email, 'SITE_FOOTER', function() {
+    document.getElementById('mainEmailForm').style.display = 'none';
+    document.getElementById('emailThanks').style.display = 'block';
+  });
+  if (!ok) {
+    document.getElementById('mainEmail').style.borderColor = 'rgba(212,86,10,.5)';
+    setTimeout(function(){ document.getElementById('mainEmail').style.borderColor = ''; }, 2000);
+  }
+};
+
+/* CHANGE: book notify form */
+window.bookNotify = function() {
+  var email = document.getElementById('bookEmail').value;
+  var ok = mcSubmit(email, 'BOOK_NOTIFY', function() {
+    document.getElementById('bookNotifyForm').style.display = 'none';
+    document.getElementById('bookThanks').style.display = 'block';
+  });
+  if (!ok) {
+    document.getElementById('bookEmail').style.borderColor = 'rgba(212,86,10,.5)';
+    setTimeout(function(){ document.getElementById('bookEmail').style.borderColor = ''; }, 2000);
+  }
+};
+
 /* ── DIAGNOSTIC FORM SCRIPT ── */
 (function() {
-  var MC_ACTION = 'https://github.us1.list-manage.com/subscribe/post?u=316789f1ece23f50887e196dc&id=fd48724e22&f_id=00786ee2f0';
   var scores = { q1:0, q2:0, q3:0, q4:0, q5:0, q6:0, q7:0 };
   var totalQuestions = 7;
 
@@ -1186,9 +1282,6 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     nextQ(current, next, stepNum);
   };
 
-  /* EDIT 1: email is optional — no validation gate */
-  window.checkEmail = function() {};
-
   function calcPhase() {
     var total = 0;
     Object.keys(scores).forEach(function(k) { total += scores[k]; });
@@ -1197,19 +1290,12 @@ footer{padding:2.8rem var(--gut);border-top:1px solid var(--border-soft);
     return 'pain';
   }
 
-  /* EDIT 1: submit to Mailchimp only if email provided */
   window.submitDiag = function() {
     var email = document.getElementById('diagEmail').value;
     var phase = calcPhase();
-
     if (/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      var formData = new FormData();
-      formData.append('EMAIL', email);
-      formData.append('PHASE', phase.toUpperCase());
-      formData.append('b_316789f1ece23f50887e196dc_fd48724e22', '');
-      fetch(MC_ACTION, { method: 'POST', body: formData, mode: 'no-cors' }).catch(function(){});
+      mcSubmit(email, 'DIAG_' + phase.toUpperCase(), function(){});
     }
-
     showResult(phase);
   };
 
